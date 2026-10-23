@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Анти-ИИ Квен Академия | Обществознание ГВЭ-9 2027</title>
+  <meta name="description" content="Бесплатный тренажёр для ГВЭ-9 по обществознанию 2027: письменная и устная формы, критерии, справочник." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    * { box-sizing: border-box; }
+    :root, [data-theme="dark"] {
+      --bg: #04140a;
+      --bg-grad1: rgba(34, 255, 136, 0.18);
+      --bg-grad2: rgba(0, 204, 102, 0.14);
+      --card: rgba(14, 38, 22, 0.78);
+      --card-soft: rgba(34, 255, 136, 0.06);
+      --border: rgba(34, 255, 136, 0.2);
+      --border-strong: rgba(34, 255, 136, 0.4);
+      --text: #e8ffec;
+      --text-soft: #b8e6c4;
+      --muted: #9ac8a8;
+      --accent: #22ff88;
+      --accent2: #00cc66;
+      --accent-text: #04140a;
+      --light-green: rgba(34, 255, 136, 0.1);
+      --red: #ef4444;
+      --orange: #f59e0b;
+      --green: #10b981;
+      --green-light: rgba(34, 197, 94, 0.15);
+      --green-border: rgba(34, 197, 94, 0.4);
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      --header-bg: rgba(4, 20, 10, 0.85);
+    }
+    [data-theme="light"] {
+      --bg: #f0fdf4;
+      --bg-grad1: rgba(34, 197, 94, 0.12);
+      --bg-grad2: rgba(21, 128, 61, 0.08);
+      --card: #ffffff;
+      --card-soft: #f8fafc;
+      --border: #bbf7d0;
+      --border-strong: #22c55e;
+      --text: #166534;
+      --text-soft: #334155;
+      --muted: #64748b;
+      --accent: #22c55e;
+      --accent2: #15803d;
+      --accent-text: #ffffff;
+      --light-green: #dcfce7;
+      --red: #dc2626;
+      --orange: #d97706;
+      --green: #059669;
+      --green-light: #dcfce7;
+      --green-border: #bbf7d0;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --header-bg: rgba(255, 255, 255, 0.95);
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, var(--bg-grad1), transparent 30%),
+        radial-gradient(circle at top right, var(--bg-grad2), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .container { width: min(1120px, 92%); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 14px 0; flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-logo {
+      width: 46px; height: 46px; border-radius: 15px; object-fit: cover;
+      background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 12px 30px rgba(34, 255, 136, 0.2);
+      flex: 0 0 auto;
+    }
+    .brand strong { display: block; font-size: 16px; line-height: 1.2; }
+    .brand small { color: var(--muted); font-size: 12px; }
+    nav { display: flex; gap: 18px; flex-wrap: wrap; }
+    nav a { color: var(--text-soft); text-decoration: none; font-weight: 700; font-size: 14px; transition: color 0.2s; }
+    nav a:hover { color: var(--accent); }
+    .top-controls { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-left: auto; }
+    .icon-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      border: 1px solid var(--border-strong);
+      background: var(--light-green);
+      color: var(--muted); border-radius: 999px; padding: 8px 12px;
+      font-weight: 850; cursor: pointer; transition: 0.15s ease;
+      font-size: 13px;
+    }
+    .icon-btn:hover { background: var(--card-soft); color: var(--accent); }
+    .lang-option { opacity: 0.6; }
+    .lang-option.active { opacity: 1; color: var(--accent); }
+    .timer-widget {
+      display: flex; align-items: center; gap: 6px;
+      background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      border-radius: 14px; padding: 6px 8px;
+    }
+    .timer-widget select {
+      background: transparent; color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 6px 8px; font: inherit; font-size: 12px; max-width: 160px;
+    }
+    .timer-widget select option { background: var(--card); color: var(--text); }
+    #timerDisplay {
+      font-variant-numeric: tabular-nums; font-weight: 900;
+      min-width: 84px; text-align: center; color: var(--text); font-size: 13px;
+    }
+    .timer-btn {
+      border: 0; background: var(--card-soft); color: var(--text);
+      border-radius: 10px; padding: 6px 9px; cursor: pointer; font-size: 14px;
+      transition: 0.15s ease;
+    }
+    .timer-btn:hover { background: var(--light-green); }
+    .timer-widget.warning #timerDisplay { color: var(--orange); }
+    .timer-widget.danger #timerDisplay { color: var(--red); animation: pulse 1s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+    .hero {
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px;
+      padding: 48px 0 28px; align-items: start;
+    }
+    .badge {
+      display: inline-flex; align-items: center; padding: 8px 12px;
+      border-radius: 999px; background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      color: var(--accent); font-size: 13px; font-weight: 700;
+    }
+    h1 { font-size: clamp(32px, 5vw, 54px); line-height: 1.05; margin: 16px 0; }
+    h1 .accent { color: var(--accent); }
+    .lead { color: var(--text-soft); max-width: 72ch; font-size: 17px; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+    .btn {
+      border: 0; border-radius: 14px; padding: 14px 18px; font-weight: 850;
+      cursor: pointer; transition: transform .15s ease, box-shadow .15s ease;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: var(--accent-text); box-shadow: 0 12px 30px rgba(34, 255, 136, 0.22);
+      font-size: 15px;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.secondary {
+      background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      color: var(--text); box-shadow: none;
+    }
+    .btn.secondary:hover { background: var(--card-soft); }
+    .btn.small { padding: 10px 14px; font-size: 14px; border-radius: 12px; }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px; padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .panel h3 { margin: 0 0 14px; font-size: 20px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
+    .metric {
+      background: var(--light-green); border-radius: 16px;
+      padding: 14px; border: 1px solid var(--border); min-height: 82px;
+    }
+    .metric strong { display: block; font-size: 22px; color: var(--text); margin-bottom: 4px; }
+    .metric span { color: var(--muted); font-size: 12px; }
+    progress {
+      width: 100%; height: 10px; border-radius: 999px; overflow: hidden;
+      appearance: none; background: var(--light-green); border: none; margin-top: 10px;
+    }
+    progress::-webkit-progress-bar { background: var(--light-green); border-radius: 999px; }
+    progress::-webkit-progress-value { background: linear-gradient(90deg, var(--accent2), var(--accent)); border-radius: 999px; }
+    progress::-moz-progress-bar { background: var(--accent); border-radius: 999px; }
+    .note { color: var(--muted); font-size: 13px; margin-top: 12px; }
+    section { padding: 28px 0; }
+    .section-head {
+      display: flex; justify-content: space-between; align-items: end;
+      gap: 16px; margin-bottom: 18px; flex-wrap: wrap;
+    }
+    h2 { font-size: clamp(24px, 3vw, 34px); margin: 0; line-height: 1.15; }
+    .sub { color: var(--muted); margin: 6px 0 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); gap: 16px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 22px; padding: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .card h3 { margin: 0 0 10px; font-size: 20px; }
+    .card p { color: var(--text-soft); margin: 0 0 16px; }
+    .warn-card { border-color: rgba(245, 158, 11, 0.4); }
+    .danger-card { border-color: rgba(239, 68, 68, 0.4); }
+    .success-card { border-color: var(--green-border); }
+    .tag {
+      display: inline-block; padding: 6px 10px; border-radius: 999px;
+      font-size: 12px; font-weight: 850; margin-bottom: 10px;
+      background: var(--light-green); border: 1px solid var(--border-strong);
+      color: var(--accent);
+    }
+    .tag.red { background: rgba(239,68,68,.14); border-color: rgba(239,68,68,.4); color: var(--red); }
+    .tag.green { background: var(--green-light); border-color: var(--green-border); color: var(--green); }
+    .tag.orange { background: rgba(245,158,11,.14); border-color: rgba(245,158,11,.4); color: var(--orange); }
+    .mini-list { margin: 0; padding-left: 18px; color: var(--text-soft); font-size: 14px; }
+    .mini-list li { margin: 7px 0; }
+    .filter-bar {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;
+      padding: 14px; background: var(--card-soft);
+      border: 1px solid var(--border); border-radius: 16px; align-items: center;
+    }
+    .filter-bar > span { color: var(--muted); font-size: 13px; font-weight: 700; margin-right: 6px; }
+    .filter-btn {
+      padding: 8px 14px; border-radius: 10px;
+      border: 1px solid var(--border-strong);
+      background: var(--light-green); color: var(--text);
+      cursor: pointer; font-size: 13px; font-weight: 700; transition: .15s ease;
+    }
+    .filter-btn:hover { background: var(--card-soft); }
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      border-color: transparent; color: var(--accent-text);
+    }
+    .question-block {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 24px; padding: 24px; margin-bottom: 26px;
+      box-shadow: var(--shadow);
+    }
+    .q-number {
+      display: inline-block; padding: 6px 12px; border-radius: 999px;
+      background: var(--light-green); border: 1px solid var(--border-strong);
+      color: var(--accent); font-size: 13px; font-weight: 850; margin-bottom: 14px;
+    }
+    .q-part { margin-bottom: 18px; }
+    .q-part-label {
+      display: inline-block; font-size: 12px; font-weight: 900;
+      text-transform: uppercase; letter-spacing: .5px;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .q-text {
+      font-size: 17px; font-weight: 700; margin: 0; line-height: 1.5;
+      color: var(--text); white-space: pre-wrap;
+    }
+    .q-info {
+      background: var(--light-green); border-left: 4px solid var(--accent);
+      border-radius: 0 14px 14px 0; padding: 16px 18px; margin: 18px 0;
+      color: var(--text-soft); font-size: 15px; line-height: 1.55; white-space: pre-wrap;
+    }
+    .q-trainer-label {
+      display: inline-block; font-size: 12px; font-weight: 900;
+      text-transform: uppercase; letter-spacing: .5px;
+      color: var(--accent); margin-bottom: 10px;
+    }
+    .options { display: grid; gap: 10px; }
+    .option {
+      text-align: left; width: 100%;
+      background: var(--card-soft);
+      border: 1px solid var(--border);
+      color: var(--text); border-radius: 14px; padding: 14px 16px;
+      cursor: pointer; font-size: 15px; transition: .15s ease; white-space: pre-wrap;
+    }
+    .option:hover:not(:disabled) { background: var(--light-green); border-color: var(--border-strong); }
+    .option.correct { background: rgba(16, 185, 129, .18); border-color: var(--green); }
+    .option.wrong { background: rgba(239, 68, 68, .18); border-color: var(--red); }
+    .option:disabled { cursor: default; }
+    .match-input-row {
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 14px;
+    }
+    .match-input-row input {
+      padding: 12px 16px; border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: var(--card-soft); color: var(--text);
+      font-size: 16px; font-weight: 700; font-family: inherit;
+      width: 240px; text-align: center; letter-spacing: 2px;
+    }
+    .match-input-row input:focus { outline: none; border-color: var(--accent); background: var(--light-green); }
+    .writing-area { margin-top: 14px; }
+    .writing-area textarea {
+      width: 100%; padding: 14px 16px; border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: var(--card-soft); color: var(--text);
+      font-size: 15px; font-family: inherit; resize: vertical; min-height: 160px;
+      line-height: 1.6;
+    }
+    .writing-area textarea:focus { outline: none; border-color: var(--accent); background: var(--light-green); }
+    .result-block { margin-top: 14px; padding: 14px 16px; border-radius: 14px; }
+    .result-block.correct { background: var(--light-green); border: 1px solid var(--border-strong); }
+    .result-block.wrong { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.4); }
+    .verdict { font-size: 17px; font-weight: 900; margin-bottom: 8px; }
+    .verdict.correct { color: var(--green); }
+    .verdict.wrong { color: var(--red); }
+    .result-row { margin: 6px 0; color: var(--text-soft); font-size: 15px; }
+    .result-row strong { color: var(--text); }
+    .source-row {
+      margin-top: 10px; padding-top: 10px;
+      border-top: 1px dashed var(--border-strong);
+      color: var(--muted); font-size: 13px;
+    }
+    .summary {
+      background: var(--light-green);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px; padding: 24px; text-align: center; margin-top: 24px;
+    }
+    .summary .score { font-size: 48px; font-weight: 950; color: var(--accent); }
+    .reset-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; justify-content: flex-end; }
+    .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .check-item {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--card-soft); border: 1px solid var(--border);
+      border-radius: 16px; padding: 14px; transition: .15s ease;
+    }
+    .check-item input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--accent); flex: 0 0 auto; cursor: pointer; }
+    .check-item label { cursor: pointer; color: var(--text-soft); font-size: 15px; }
+    .check-item.done { opacity: .75; background: var(--light-green); border-color: var(--border-strong); }
+    .check-item.done label { text-decoration: line-through; color: var(--muted); }
+    .plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .day {
+      background: var(--card-soft); border: 1px solid var(--border);
+      border-radius: 18px; padding: 16px; min-height: 112px;
+      position: relative;
+    }
+    .day::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%;
+      background: var(--accent); border-radius: 18px 0 0 18px;
+    }
+    .day b { display: block; color: var(--accent); margin-bottom: 6px; font-size: 14px; letter-spacing: .2px; }
+    .day p { margin: 0; color: var(--text-soft); font-size: 14px; }
+    .day.critical { border-color: rgba(239,68,68,.4); background: rgba(239,68,68,.08); }
+    .day.critical::before { background: var(--red); }
+    .topic-card { display: flex; flex-direction: column; }
+    .topic-card button { margin-top: auto; align-self: flex-start; }
+    .topic-card.studied { border-color: var(--accent); background: var(--light-green); }
+    .manual-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 22px; padding: 20px; margin-bottom: 16px;
+      box-shadow: var(--shadow);
+    }
+    .manual-card h3 { margin: 0 0 10px; font-size: 20px; }
+    .manual-card p { color: var(--text-soft); margin: 8px 0; white-space: pre-wrap; }
+    .answer-hint {
+      margin-top: 10px; padding: 12px 14px; border-radius: 14px;
+      background: var(--light-green); border: 1px solid var(--border-strong);
+      color: var(--accent); font-size: 14px; white-space: pre-wrap;
+    }
+    .check-input { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--border-strong); }
+    .check-input label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
+    .check-input textarea {
+      width: 100%; padding: 12px 14px; border-radius: 12px;
+      border: 1px solid var(--border-strong);
+      background: var(--card-soft); color: var(--text);
+      font-size: 15px; font-family: inherit; resize: vertical; min-height: 100px;
+    }
+    .check-input textarea:focus { outline: none; border-color: var(--accent); background: var(--light-green); }
+    .oral-self-check {
+      margin-top: 12px; padding: 12px 14px; border-radius: 14px;
+      background: var(--card-soft); border: 1px solid var(--border);
+    }
+    .oral-self-check .oral-score-label {
+      display: block; font-size: 13px; font-weight: 700;
+      color: var(--muted); margin-bottom: 8px;
+    }
+    .oral-score-row {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 0; font-size: 14px; color: var(--text-soft);
+    }
+    .oral-score-row input[type="radio"] {
+      accent-color: var(--accent); width: 18px; height: 18px; cursor: pointer;
+    }
+    .oral-score-row label { cursor: pointer; }
+    .oral-ticket-total {
+      margin-top: 10px; padding: 10px 14px; border-radius: 12px;
+      background: var(--light-green); border: 1px solid var(--border-strong);
+      font-weight: 800; color: var(--accent); font-size: 15px; text-align: center;
+    }
+    .oral-summary-box {
+      margin-top: 24px; padding: 24px; border-radius: 24px;
+      background: var(--light-green); border: 1px solid var(--border-strong);
+      text-align: center;
+    }
+    .oral-summary-box .score { font-size: 48px; font-weight: 950; color: var(--accent); }
+    .oral-timer-widget {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 18px; padding: 14px; border-radius: 16px;
+      background: var(--card-soft); border: 1px solid var(--border);
+    }
+    .oral-timer-widget #oralTimerDisplay {
+      font-variant-numeric: tabular-nums; font-weight: 900; font-size: 18px;
+      min-width: 90px; text-align: center; color: var(--text);
+    }
+    .oral-timer-widget.warning #oralTimerDisplay { color: var(--orange); }
+    .oral-timer-widget.danger #oralTimerDisplay { color: var(--red); animation: pulse 1s infinite; }
+    .support-card {
+      background: var(--card);
+      border: 1px solid var(--border-strong);
+      border-radius: 24px; padding: 24px;
+      box-shadow: var(--shadow); text-align: center;
+    }
+    .support-card h2 { margin-bottom: 10px; }
+    .support-card p { margin: 10px 0; color: var(--text-soft); }
+    .phone { color: var(--accent); font-weight: 900; text-decoration: none; border-bottom: 1px dashed var(--accent); }
+    .phone:hover { color: var(--accent2); }
+    .copy-status { margin-left: 8px; color: var(--accent); font-weight: 850; }
+    .support-card a.link { color: var(--accent); font-weight: 800; text-decoration: none; }
+    .support-card a.link:hover { text-decoration: underline; }
+    footer {
+      padding: 30px 0 50px; color: var(--muted); text-align: center;
+      border-top: 1px solid var(--border); margin-top: 30px;
+    }
+    .reference-table {
+      width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px;
+    }
+    .reference-table th, .reference-table td {
+      border: 1px solid var(--border); padding: 6px; text-align: left;
+    }
+    .reference-table th { background: var(--light-green); color: var(--accent); }
+    .criteria-block {
+      background: var(--card-soft); border: 1px solid var(--border);
+      border-radius: 14px; padding: 14px 16px; margin-top: 14px;
+      font-size: 13px; color: var(--text-soft); line-height: 1.6;
+    }
+    .criteria-block strong { color: var(--accent); display: block; margin-bottom: 6px; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: 1fr; }
+      nav { gap: 12px; }
+      .top-controls { width: 100%; justify-content: space-between; }
+      .timer-widget select { max-width: 130px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <img src="favicon.ico" class="brand-logo" alt="Anti-AI Qwen Academy" onerror="this.style.display='none'" />
+        <div>
+          <strong data-i18n="brandTitle">Анти-ИИ Квен Академия</strong>
+          <small data-i18n="brandSub">Обществознание • ГВЭ-9 • 2027</small>
+        </div>
+      </div>
+      <nav>
+        <a href="#structure" data-i18n="navStructure">Структура</a>
+        <a href="#topics" data-i18n="navTopics">Разделы</a>
+        <a href="#trainer" data-i18n="navTrainer">Тренажёр</a>
+        <a href="#oral" data-i18n="navOral">Устная форма</a>
+        <a href="#references" data-i18n="navRefs">Справочник</a>
+        <a href="#checklist" data-i18n="navChecklist">Чек-лист</a>
+        <a href="#plan" data-i18n="navPlan">План</a>
+        <a href="#support" data-i18n="navSupport">Поддержать</a>
+      </nav>
+      <div class="top-controls">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Сменить тему">
+          <span id="themeIcon">🌙</span>
+        </button>
+        <button id="langToggle" class="icon-btn" type="button" aria-label="Сменить язык">
+          <span class="lang-option active" data-lang="ru">RU</span>
+          <span>/</span>
+          <span class="lang-option" data-lang="en">EN</span>
+        </button>
+        <div class="timer-widget" id="timerWidget" role="group" aria-label="Таймер экзамена">
+          <select id="timerPreset" aria-label="Пресет таймера"></select>
+          <span id="timerDisplay">03:00:00</span>
+          <button id="timerToggle" class="timer-btn" type="button">▶</button>
+          <button id="timerReset" class="timer-btn" type="button">↺</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge" data-i18n="badge">Бесплатно • HTML • Обществознание ГВЭ-9 2027 • Письменная + устная формы</span>
+        <h1 data-i18n="h1">Поможем сдать <span class="accent">ГВЭ-9 по обществознанию</span> правильно</h1>
+        <p class="lead" data-i18n="lead">
+          Один файл — работает без интернета. Внутри: 16 заданий по образцу ФИПИ 2027,
+          критерии оценивания, справочник, устная форма (15 билетов), чек-лист и план подготовки.
+        </p>
+        <div class="actions">
+          <button class="btn" onclick="scrollToId('trainer')" data-i18n="actionTrainer">Пройти тренажёр</button>
+          <button class="btn secondary" onclick="scrollToId('oral')" data-i18n="actionOral">Устная форма</button>
+          <button class="btn secondary" onclick="scrollToId('references')" data-i18n="actionRefs">Критерии и правила</button>
+        </div>
+      </div>
+      <aside class="panel">
+        <h3 data-i18n="quickStats">Твой прогресс</h3>
+        <div class="metrics">
+          <div class="metric">
+            <strong id="answeredCount">0/16</strong>
+            <span data-i18n="metricAnswered">заданий решено</span>
+          </div>
+          <div class="metric">
+            <strong id="correctCount">0</strong>
+            <span data-i18n="metricCorrect">правильных</span>
+          </div>
+          <div class="metric">
+            <strong id="checklistProgress">0%</strong>
+            <span data-i18n="metricChecklist">чек-лист</span>
+          </div>
+        </div>
+        <progress id="overall" value="0" max="100"></progress>
+        <p class="note" data-i18n="noteReset">Ответы сбрасываются при обновлении. Чек-лист тоже сбрасывается.</p>
+      </aside>
+    </section>
+
+    <section id="structure">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="structureTitle">Структура ГВЭ-9 по обществознанию 2027</h2>
+          <p class="sub" data-i18n="structureSub">Письменная (180 мин, 19 баллов) + устная (15 билетов, 6 баллов).</p>
+        </div>
+      </div>
+      <div class="grid" id="structureGrid"></div>
+    </section>
+
+    <section id="topics">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="topicsTitle">Ключевые разделы</h2>
+          <p class="sub" data-i18n="topicsSub">Отмечай разделы, которые уже повторил.</p>
+        </div>
+      </div>
+      <div class="grid" id="topicsGrid"></div>
+    </section>
+
+    <section id="trainer">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="trainerTitle">Тренажёр ГВЭ-9 (письменная форма)</h2>
+          <p class="sub" data-i18n="trainerSub">
+            16 заданий по образцу ФИПИ 2027. Задания 1–13 с автопроверкой, 14–16 с самопроверкой по критериям.
+          </p>
+        </div>
+      </div>
+      <div class="filter-bar">
+        <span data-i18n="filterShow">Показать:</span>
+        <button class="filter-btn active" data-filter="all" id="filterAll" onclick="setFilter('all', this)"></button>
+        <button class="filter-btn" data-filter="short" id="filterShort" onclick="setFilter('short', this)"></button>
+        <button class="filter-btn" data-filter="long" id="filterLong" onclick="setFilter('long', this)"></button>
+      </div>
+      <div class="reset-bar">
+        <button class="btn secondary small" onclick="resetAll()" data-i18n="resetAll">Сбросить ответы</button>
+      </div>
+      <div id="quizContainer"></div>
+      <div id="summaryBox"></div>
+    </section>
+
+    <section id="oral">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="oralTitle">Устная форма (Билеты)</h2>
+          <p class="sub" data-i18n="oralSub">
+            15 билетов, каждый = 2 теоретических вопроса. Подготовка — 40 минут. Максимум — 6 баллов.
+          </p>
+        </div>
+      </div>
+      <div class="criteria-block">
+        <strong data-i18n="oralCriteria">Критерии за каждый вопрос:</strong>
+        • 3 балла — экзаменуемый полно и правильно изложил ответ.<br/>
+        • 2 балла — в целом правильный ответ, но с отдельными неточностями.<br/>
+        • 1 балл — ответ с существенными ошибками, но свидетельствует о понимании смысла.<br/>
+        • 0 баллов — экзаменуемый не ответил на вопрос.<br/>
+        <strong>Максимум за билет:</strong> 6 баллов.
+      </div>
+      <div class="oral-timer-widget" id="oralTimerWidget">
+        <strong data-i18n="oralTimerLabel">⏱ 40 минут на подготовку:</strong>
+        <span id="oralTimerDisplay">40:00</span>
+        <button class="timer-btn" id="oralTimerToggle" type="button">▶</button>
+        <button class="timer-btn" id="oralTimerReset" type="button">↺</button>
+      </div>
+      <div id="oralContainer"></div>
+      <div id="oralSummaryBox"></div>
+    </section>
+
+    <section id="references">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="refsTitle">Справочник и критерии</h2>
+          <p class="sub" data-i18n="refsSub">Критерии оценивания + шкалы перевода + термины.</p>
+        </div>
+      </div>
+      <div class="grid" id="refsGrid"></div>
+      <div class="card" style="margin-top:16px;">
+        <h3 data-i18n="refRules">Что нужно помнить на экзамене</h3>
+        <ul class="mini-list">
+          <li><strong>Дополнительные материалы не используются</strong> (ни письменная, ни устная форма)</li>
+          <li><strong>Черновик</strong> — можно, но записи не учитываются</li>
+          <li><strong>Письменная часть:</strong> 16 заданий (1–13 краткий ответ, 14–16 развёрнутый)</li>
+          <li><strong>Устная часть:</strong> 2 вопроса в билете, 40 минут на подготовку</li>
+          <li><strong>Задание 16</strong> — финансовая грамотность</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <h3>📚 Обществоведческие термины (шпаргалка)</h3>
+        <table class="reference-table">
+          <tr><th>Термин</th><th>Определение</th></tr>
+          <tr><td>Общество</td><td>Обособившаяся от природы часть материального мира</td></tr>
+          <tr><td>Личность</td><td>Человек как субъект социальных отношений</td></tr>
+          <tr><td>Индивид</td><td>Отдельный представитель человеческого рода</td></tr>
+          <tr><td>Социальный институт</td><td>Исторически сложившаяся форма организации совместной деятельности</td></tr>
+          <tr><td>Семья</td><td>Малая группа, основанная на браке или родстве</td></tr>
+          <tr><td>Экономика</td><td>Наука о хозяйстве и способах его ведения</td></tr>
+          <tr><td>Рынок</td><td>Совокупность экономических отношений, основанных на обмене</td></tr>
+          <tr><td>Налог</td><td>Обязательный безвозмездный платёж в пользу государства</td></tr>
+          <tr><td>Государство</td><td>Политическая организация общества с определённой формой правления</td></tr>
+          <tr><td>Право</td><td>Система общеобязательных норм, установленных государством</td></tr>
+          <tr><td>Конституция</td><td>Основной закон государства</td></tr>
+          <tr><td>Правонарушение</td><td>Общественно опасное виновное деяние</td></tr>
+          <tr><td>Юридическая ответственность</td><td>Мера государственного принуждения за правонарушение</td></tr>
+          <tr><td>Культура</td><td>Совокупность достижений человечества в материальной и духовной сферах</td></tr>
+          <tr><td>Религия</td><td>Форма мировоззрения, основанная на вере в сверхъестественное</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="checklistTitle">Чек-лист подготовки</h2>
+          <p class="sub" data-i18n="checklistSub">Прогресс не сохраняется — всё сбрасывается при обновлении.</p>
+        </div>
+      </div>
+      <ul class="checklist" id="checklistUl"></ul>
+    </section>
+
+    <section id="plan">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="planTitle">План подготовки: 25 дней</h2>
+          <p class="sub" data-i18n="planSub">Маршрут по структуре ГВЭ-9 2027.</p>
+        </div>
+      </div>
+      <div class="plan-grid" id="planGrid"></div>
+    </section>
+
+    <section id="support">
+      <div class="support-card">
+        <h2 data-i18n="supportTitle">🤝 ПОДДЕРЖАТЬ ПРОЕКТ 💚</h2>
+        <p data-i18n="supportP1"><strong>Приложение бесплатное. Было и останется.</strong></p>
+        <p data-i18n="supportP2">Все приложения бесплатны и без рекламы. Ваша помощь развивает офлайн-безопасность и образование.</p>
+        <p>
+          <span data-i18n="supportPhoneLabel">📱 ПЕРЕВОД ПО НОМЕРУ:</span>
+          <a class="phone" href="tel:89202275676">8-920-227-56-76</a>
+          <button class="btn small" onclick="copyPhone()" data-i18n="copyPhone">📋 Копировать</button>
+          <span id="copyStatus" class="copy-status" aria-live="polite"></span>
+        </p>
+        <p data-i18n="supportP3">✅ Мгновенно. Без комиссии. Безопасно.</p>
+        <p data-i18n="supportP4">❤️ Спасибо за поддержку!</p>
+        <p>🌟 👉 <a href="https://ancf-hue.github.io/" target="_blank" rel="noopener noreferrer" class="link" data-i18n="supportCatalog">Каталог офлайн-приложений Anti-AI Shield</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" data-i18n="footer">
+      Анти-ИИ Квен Академия • Бесплатный HTML-проект • Обществознание ГВЭ-9 2027
+    </div>
+  </footer>
+
+  <script>
+    const STORAGE = {
+      theme: "antiIqwenSocialGVE9_2027_theme",
+      lang: "antiIqwenSocialGVE9_2027_lang"
+    };
+
+    const I18N = {
+      ru: {
+        docTitle: "Анти-ИИ Квен Академия | Обществознание ГВЭ-9 2027",
+        brandTitle: "Анти-ИИ Квен Академия",
+        brandSub: "Обществознание • ГВЭ-9 • 2027",
+        navStructure: "Структура", navTopics: "Разделы", navTrainer: "Тренажёр",
+        navOral: "Устная форма", navRefs: "Справочник", navChecklist: "Чек-лист", navPlan: "План", navSupport: "Поддержать",
+        badge: "Бесплатно • HTML • Обществознание ГВЭ-9 2027 • Письменная + устная формы",
+        h1: 'Поможем сдать <span class="accent">ГВЭ-9 по обществознанию</span> правильно',
+        lead: "Один файл — работает без интернета. Внутри: 16 заданий по образцу ФИПИ 2027, критерии оценивания, справочник, устная форма (15 билетов), чек-лист и план подготовки.",
+        actionTrainer: "Пройти тренажёр", actionOral: "Устная форма", actionRefs: "Критерии и правила",
+        quickStats: "Твой прогресс",
+        metricAnswered: "заданий решено", metricCorrect: "правильных", metricChecklist: "чек-лист",
+        noteReset: "Ответы сбрасываются при обновлении. Чек-лист тоже сбрасывается.",
+        structureTitle: "Структура ГВЭ-9 по обществознанию 2027",
+        structureSub: "Письменная (180 мин, 19 баллов) + устная (15 билетов, 6 баллов).",
+        topicsTitle: "Ключевые разделы", topicsSub: "Отмечай разделы, которые уже повторил.",
+        trainerTitle: "Тренажёр ГВЭ-9 (письменная форма)",
+        trainerSub: "16 заданий по образцу ФИПИ 2027. Задания 1–13 с автопроверкой, 14–16 с самопроверкой.",
+        filterShow: "Показать:", filterAll: "Все", filterShort: "Краткий ответ (1–13)", filterLong: "Развёрнутый ответ (14–16)",
+        resetAll: "Сбросить ответы",
+        oralTitle: "Устная форма (Билеты)",
+        oralSub: "15 билетов, каждый = 2 теоретических вопроса. Подготовка — 40 минут.",
+        oralCriteria: "Критерии за каждый вопрос:",
+        oralSelfScoreLabel: "Самооценка по критериям:",
+        oralScore3: "3 — полно и правильно",
+        oralScore2: "2 — в целом верно, но с неточностями",
+        oralScore1: "1 — существенные ошибки, но смысл понятен",
+        oralScore0: "0 — не ответил",
+        oralTicketTotal: "Итог за билет",
+        oralSummaryProgress: "Оценено билетов",
+        oralScaleHint: "Шкала: «2» 0–1, «3» 2–3, «4» 4–5, «5» 6.",
+        oralTimerLabel: "⏱ 40 минут на подготовку:",
+        oralTimerUp: "Время подготовки вышло!",
+        refsTitle: "Справочник и критерии",
+        refsSub: "Критерии оценивания + шкалы перевода + термины.",
+        refRules: "Что нужно помнить на экзамене",
+        checklistTitle: "Чек-лист подготовки", checklistSub: "Прогресс не сохраняется — всё сбрасывается при обновлении.",
+        planTitle: "План подготовки: 25 дней", planSub: "Маршрут по структуре ГВЭ-9 2027.", dayPrefix: "День",
+        supportTitle: "🤝 ПОДДЕРЖАТЬ ПРОЕКТ 💚",
+        supportP1: "<strong>Приложение бесплатное. Было и останется.</strong>",
+        supportP2: "Все приложения бесплатны и без рекламы. Ваша помощь развивает офлайн-безопасность и образование.",
+        supportPhoneLabel: "📱 ПЕРЕВОД ПО НОМЕРУ:", copyPhone: "📋 Копировать", copied: "✓ Скопировано",
+        supportP3: "✅ Мгновенно. Без комиссии. Безопасно.", supportP4: "❤️ Спасибо за поддержку!",
+        supportCatalog: "Каталог офлайн-приложений Anti-AI Shield",
+        footer: "Анти-ИИ Квен Академия • Бесплатный HTML-проект • Обществознание ГВЭ-9 2027",
+        resultCorrect: "✅ Правильно!", resultWrong: "❌ Неправильно.",
+        correctAnswer: "Правильный ответ:", explanation: "Пояснение:", source: "Источник:",
+        summaryAnswered: "Пройдено:", summaryOf: "из", summaryCorrect: "Правильных:",
+        summaryFinish: "Ответь на все задания, чтобы увидеть итог.",
+        verdictExcellent: "Отличный результат! Ты хорошо готов к ГВЭ-9 2027.",
+        verdictGood: "Хорошо, но разбери ошибки по заданиям.",
+        verdictNeeds: "Нужно внимательно проработать задания ГВЭ-9 2027.",
+        resetConfirm: "Сбросить все ответы?",
+        copyFail: "Не удалось скопировать. Номер: ",
+        questionLabel1: "1. Задание", questionLabel2: "2. Информация", questionLabel3: "3. Тренажёр — ответь сам",
+        levelShort: "Краткий ответ", levelLong: "Развёрнутый ответ",
+        sourceShort: "ГВЭ-9 2027, задание {task}",
+        sourceLong: "ГВЭ-9 2027, задание {task} (развёрнутый ответ)",
+        timerBasic: "ГВЭ-9 — 180 мин", timerPractice: "Тренировка — 60 мин", timerUp: "Время вышло!",
+        timerStart: "Запустить", timerPause: "Пауза", timerReset: "Сброс",
+        oralTag: "Устная форма", oralTaskPrefix: "Билет",
+        oralQ1: "Вопрос 1", oralQ2: "Вопрос 2",
+        oralSelfLabel: "Твой устный ответ (для самопроверки):",
+        oralPlaceholder: "Впиши свои рассуждения...",
+        matchPlaceholder: "Например: 125",
+        matchCheck: "Проверить",
+        showSolution: "Показать эталон"
+      },
+      en: {
+        docTitle: "Anti-AI Qwen Academy | Social Studies GVE-9 2027",
+        brandTitle: "Anti-AI Qwen Academy",
+        brandSub: "Social Studies • GVE-9 • 2027",
+        navStructure: "Structure", navTopics: "Sections", navTrainer: "Trainer",
+        navOral: "Oral Exam", navRefs: "References", navChecklist: "Checklist", navPlan: "Plan", navSupport: "Support",
+        badge: "Free • HTML • Social Studies GVE-9 2027 • Written + oral",
+        h1: 'Help you pass <span class="accent">GVE-9 Social Studies</span> correctly',
+        lead: "One file — works offline. Inside: 16 tasks based on FIPI 2027 sample, evaluation criteria, reference, oral exam (15 tickets), checklist and plan.",
+        actionTrainer: "Start trainer", actionOral: "Oral Exam", actionRefs: "Criteria & rules",
+        quickStats: "Your progress",
+        metricAnswered: "tasks solved", metricCorrect: "correct", metricChecklist: "checklist",
+        noteReset: "Answers reset on reload. Checklist also resets.",
+        structureTitle: "GVE-9 Social Studies 2027 structure",
+        structureSub: "Written (180 min, 19 pts) + oral (15 tickets, 6 pts).",
+        topicsTitle: "Key sections", topicsSub: "Mark sections you've reviewed.",
+        trainerTitle: "GVE-9 Trainer (written form)",
+        trainerSub: "16 tasks based on FIPI 2027 sample. Tasks 1–13 auto-check, 14–16 self-check.",
+        filterShow: "Show:", filterAll: "All", filterShort: "Short answer (1–13)", filterLong: "Extended answer (14–16)",
+        resetAll: "Reset answers",
+        oralTitle: "Oral Exam (Tickets)",
+        oralSub: "15 tickets, each = 2 theory questions. 40 min prep.",
+        oralCriteria: "Criteria per question:",
+        oralSelfScoreLabel: "Self-assessment by criteria:",
+        oralScore3: "3 — fully and correctly",
+        oralScore2: "2 — generally correct, with inaccuracies",
+        oralScore1: "1 — significant errors, but meaning is clear",
+        oralScore0: "0 — no answer",
+        oralTicketTotal: "Ticket total",
+        oralSummaryProgress: "Tickets assessed",
+        oralScaleHint: "Scale: «2» 0–1, «3» 2–3, «4» 4–5, «5» 6.",
+        oralTimerLabel: "⏱ 40 minutes for preparation:",
+        oralTimerUp: "Preparation time is up!",
+        refsTitle: "Reference & criteria",
+        refsSub: "Criteria + conversion scales + terms.",
+        refRules: "What to remember on the exam",
+        checklistTitle: "Preparation checklist", checklistSub: "Progress is not saved — everything resets on reload.",
+        planTitle: "25-day preparation plan", planSub: "Route according to GVE-9 2027 structure.", dayPrefix: "Day",
+        supportTitle: "🤝 SUPPORT THE PROJECT 💚",
+        supportP1: "<strong>The app is free.</strong>",
+        supportP2: "All apps are free and ad-free.",
+        supportPhoneLabel: "📱 TRANSFER BY PHONE:", copyPhone: "📋 Copy", copied: "✓ Copied",
+        supportP3: "✅ Instantly. No commission.", supportP4: "❤️ Thanks!",
+        supportCatalog: "Catalog of Anti-AI Shield apps",
+        footer: "Anti-AI Qwen Academy • Free HTML project • Social Studies GVE-9 2027",
+        resultCorrect: "✅ Correct!", resultWrong: "❌ Wrong.",
+        correctAnswer: "Correct answer:", explanation: "Explanation:", source: "Source:",
+        summaryAnswered: "Completed:", summaryOf: "of", summaryCorrect: "Correct:",
+        summaryFinish: "Answer all tasks to see the result.",
+        verdictExcellent: "Excellent! You're well prepared for GVE-9 2027.",
+        verdictGood: "Good, but analyze your mistakes.",
+        verdictNeeds: "You need to carefully work through GVE-9 2027 tasks.",
+        resetConfirm: "Reset all answers?",
+        copyFail: "Could not copy. Number: ",
+        questionLabel1: "1. Task", questionLabel2: "2. Info", questionLabel3: "3. Trainer — answer yourself",
+        levelShort: "Short answer", levelLong: "Extended answer",
+        sourceShort: "GVE-9 2027, task {task}",
+        sourceLong: "GVE-9 2027, task {task} (extended)",
+        timerBasic: "GVE-9 — 180 min", timerPractice: "Practice — 60 min", timerUp: "Time is up!",
+        timerStart: "Start", timerPause: "Pause", timerReset: "Reset",
+        oralTag: "Oral Exam", oralTaskPrefix: "Ticket",
+        oralQ1: "Question 1", oralQ2: "Question 2",
+        oralSelfLabel: "Your oral answer (self-check):",
+        oralPlaceholder: "Enter your reasoning...",
+        matchPlaceholder: "Example: 125",
+        matchCheck: "Check",
+        showSolution: "Show model"
+      }
+    };
+
+    let currentLang = localStorage.getItem(STORAGE.lang) || "ru";
+    let currentTheme = localStorage.getItem(STORAGE.theme) || "dark";
+    let currentFilter = "all";
+    let savedAnswers = {};
+    let checklistState = {};
+    let topicsState = {};
+    let oralNotes = {};
+
+    function loc(obj) { return obj && obj[currentLang] !== undefined ? obj[currentLang] : ""; }
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, m => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[m]));
+    }
+    function scrollToId(id) { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+
+    function saveAll() { /* ничего не сохраняем — сброс при перезагрузке */ }
+
+    function loadAll() {
+      savedAnswers = {};
+      oralNotes = {};
+      checklistState = {};
+      topicsState = {};
+    }
+
+    function applyTheme() {
+      document.documentElement.setAttribute("data-theme", currentTheme);
+      const icon = document.getElementById("themeIcon");
+      if (icon) icon.textContent = currentTheme === "dark" ? "🌙" : "☀️";
+    }
+    function toggleTheme() {
+      currentTheme = currentTheme === "dark" ? "light" : "dark";
+      localStorage.setItem(STORAGE.theme, currentTheme);
+      applyTheme();
+    }
+
+    /* CONTENT */
+    const structureCards = [
+      {
+        cardClass: "success-card", tagClass: "green",
+        tag: { ru: "Письменная форма", en: "Written form" },
+        title: { ru: "16 заданий (19 баллов)", en: "16 tasks (19 points)" },
+        items: [
+          { ru: "Задания 1, 13 — слово/словосочетание.", en: "Tasks 1, 13 — word/phrase." },
+          { ru: "Задания 2–10 — выбор одного ответа из четырёх.", en: "Tasks 2–10 — one of four." },
+          { ru: "Задания 11, 12 — последовательность цифр.", en: "Tasks 11, 12 — sequence of digits." },
+          { ru: "Задания 14–16 — развёрнутый ответ.", en: "Tasks 14–16 — extended answer." },
+          { ru: "Максимум: 19 первичных баллов.", en: "Max: 19 primary points." },
+          { ru: "Время: 3 часа (180 минут).", en: "Time: 3 hours (180 minutes)." },
+          { ru: "Разделы: Человек и общество, Культура, Экономика, Государство и право.", en: "Sections: Man & Society, Culture, Economics, State & Law." }
+        ]
+      },
+      {
+        cardClass: "warn-card", tagClass: "orange",
+        tag: { ru: "Устная форма", en: "Oral form" },
+        title: { ru: "15 билетов (6 баллов)", en: "15 tickets (6 points)" },
+        items: [
+          { ru: "2 теоретических вопроса в билете.", en: "2 theory questions per ticket." },
+          { ru: "Оценивается: знание понятий, умение описывать, сравнивать, объяснять, приводить примеры.", en: "Assessed: knowledge, description, comparison, explanation, examples." },
+          { ru: "Время подготовки: 40 минут.", en: "Preparation time: 40 minutes." },
+          { ru: "Максимум: 6 баллов.", en: "Max: 6 points." }
+        ]
+      },
+      {
+        cardClass: "danger-card", tagClass: "red",
+        tag: { ru: "Шкалы перевода", en: "Conversion scales" },
+        title: { ru: "Письменная / Устная", en: "Written / Oral" },
+        items: [
+          { ru: "Письменная: «2» 0–6, «3» 7–11, «4» 12–15, «5» 16–19.", en: "Written: «2» 0–6, «3» 7–11, «4» 12–15, «5» 16–19." },
+          { ru: "Устная: «2» 0–1, «3» 2–3, «4» 4–5, «5» 6.", en: "Oral: «2» 0–1, «3» 2–3, «4» 4–5, «5» 6." }
+        ]
+      }
+    ];
+
+    const topicsCards = [
+      { key: "society", title: { ru: "Человек и общество", en: "Man and Society" },
+        text: { ru: "Биологическое и социальное в человеке, общество, сферы общественной жизни, традиционные ценности.", en: "Biological and social in man, society, spheres of public life, traditional values." } },
+      { key: "culture", title: { ru: "Культура", en: "Culture" },
+        text: { ru: "Искусство, наука, образование, религия, учреждения культуры.", en: "Art, science, education, religion, cultural institutions." } },
+      { key: "economics", title: { ru: "Экономика", en: "Economics" },
+        text: { ru: "Хозяйственные системы, государство в экономике, семья в экономике, финансовая грамотность.", en: "Economic systems, state in economy, family in economy, financial literacy." } },
+      { key: "state", title: { ru: "Государство и право", en: "State and Law" },
+        text: { ru: "Федеративное устройство, Президент, Федеральное Собрание, Правительство, правоотношения, юридическая ответственность.", en: "Federal structure, President, Federal Assembly, Government, legal relations, legal responsibility." } },
+      { key: "future", title: { ru: "Россия на пути в будущее", en: "Russia on the path to the future" },
+        text: { ru: "Россия — страна возможностей, Россия в XXI веке, глобальная политика.", en: "Russia — country of opportunities, Russia in the 21st century, global politics." } }
+    ];
+
+    const checklistItems = [
+      { key: "ch1", label: { ru: "Знаю структуру работы (16 заданий, 19 баллов, 180 минут)", en: "Know structure (16 tasks, 19 pts, 180 min)" } },
+      { key: "ch2", label: { ru: "Повторил раздел «Человек и общество»", en: "Reviewed «Man and Society»" } },
+      { key: "ch3", label: { ru: "Повторил раздел «Культура»", en: "Reviewed «Culture»" } },
+      { key: "ch4", label: { ru: "Повторил раздел «Экономика»", en: "Reviewed «Economics»" } },
+      { key: "ch5", label: { ru: "Повторил раздел «Государство и право»", en: "Reviewed «State and Law»" } },
+      { key: "ch6", label: { ru: "Повторил основы финансовой грамотности (задание 16)", en: "Reviewed financial literacy (task 16)" } },
+      { key: "ch7", label: { ru: "Отработал задания с развёрнутым ответом (14–16)", en: "Practiced extended-answer tasks (14–16)" } },
+      { key: "ch8", label: { ru: "Потренировал устный ответ по критериям", en: "Practiced oral answer against criteria" } }
+    ];
+
+    const planDays = [
+      { day: 1, critical: true, text: { ru: "Диагностика: структура ГВЭ-9, форматы, слабые темы.", en: "Diagnostics: GVE-9 structure, formats, weak topics." } },
+      { day: 2, critical: false, text: { ru: "Человек и общество: биологическое и социальное.", en: "Man and Society: biological and social." } },
+      { day: 3, critical: false, text: { ru: "Общество как система. Сферы общественной жизни.", en: "Society as a system. Spheres of public life." } },
+      { day: 4, critical: false, text: { ru: "Традиционные российские духовно-нравственные ценности.", en: "Traditional Russian spiritual and moral values." } },
+      { day: 5, critical: false, text: { ru: "Культура: искусство, наука, образование.", en: "Culture: art, science, education." } },
+      { day: 6, critical: false, text: { ru: "Религия. Традиционные религии в России.", en: "Religion. Traditional religions in Russia." } },
+      { day: 7, critical: false, text: { ru: "Экономика: хозяйственные системы, рынок.", en: "Economics: economic systems, market." } },
+      { day: 8, critical: false, text: { ru: "Государство в экономике. Налоги. Госбюджет.", en: "State in economy. Taxes. State budget." } },
+      { day: 9, critical: false, text: { ru: "Семья в экономике. Семейный бюджет. Личный финансовый план.", en: "Family in economy. Family budget. Personal financial plan." } },
+      { day: 10, critical: false, text: { ru: "Деньги и их функции. Инфляция. Центральный банк.", en: "Money and its functions. Inflation. Central Bank." } },
+      { day: 11, critical: false, text: { ru: "Государство и право: Конституция РФ.", en: "State and Law: Constitution of the Russian Federation." } },
+      { day: 12, critical: false, text: { ru: "Президент РФ. Федеральное Собрание. Правительство.", en: "President. Federal Assembly. Government." } },
+      { day: 13, critical: false, text: { ru: "Правоотношения. Правонарушения. Юридическая ответственность.", en: "Legal relations. Offences. Legal responsibility." } },
+      { day: 14, critical: false, text: { ru: "Правовой статус несовершеннолетнего. Уголовная ответственность.", en: "Legal status of minors. Criminal responsibility." } },
+      { day: 15, critical: true, text: { ru: "Пробник: задания 1–13 на время.", en: "Practice: tasks 1–13 under time." } },
+      { day: 16, critical: true, text: { ru: "Пробник: задания 14–16 (развёрнутые).", en: "Practice: tasks 14–16 (extended)." } },
+      { day: 17, critical: false, text: { ru: "Разбор ошибок пробника.", en: "Analyzing errors." } },
+      { day: 18, critical: false, text: { ru: "Финансовая грамотность: защита от мошенничества.", en: "Financial literacy: protection from fraud." } },
+      { day: 19, critical: false, text: { ru: "Права потребителя финансовых услуг.", en: "Rights of financial services consumers." } },
+      { day: 20, critical: false, text: { ru: "Россия — страна возможностей. Национальные цели.", en: "Russia — country of opportunities. National goals." } },
+      { day: 21, critical: false, text: { ru: "Россия в XXI веке. Глобальная политика.", en: "Russia in the 21st century. Global politics." } },
+      { day: 22, critical: false, text: { ru: "Устная форма: тренировка ответа на теорию.", en: "Oral: practicing theory answers." } },
+      { day: 23, critical: false, text: { ru: "Тренировка оформления развёрнутых ответов.", en: "Practicing extended answer formatting." } },
+      { day: 24, critical: false, text: { ru: "Полный пробник: 180 минут.", en: "Full practice test: 180 minutes." } },
+      { day: 25, critical: false, text: { ru: "Отдых, проверка документов, настройка.", en: "Rest, checking documents, mindset." } }
+    ];
+
+    /* QUIZ — 16 заданий по образцу ФИПИ 2027 (правильные ключи из PDF) */
+    const quiz = [
+      { id: 1, level: "short", task: 1, type: "match",
+        correctMatch: "выборы", options: [],
+        ru: { text: "Какое из перечисленных понятий используется в первую очередь при описании политической сферы общественной жизни?\n\nВыборы, уплата налогов, сохранение природы, военная служба.\n\nВыпишите соответствующее понятие.",
+          info: "Задание 1 проверяет знание сфер общественной жизни.", explanation: "Политическая сфера — выборы. Ответ: выборы." },
+        en: { text: "Which concept is used primarily to describe the political sphere?\n\nElections, taxes, nature conservation, military service.",
+          info: "Task 1 checks spheres of public life.", explanation: "Political sphere — elections. Answer: выборы." } },
+
+      { id: 2, level: "short", task: 2, type: "single",
+        options: ["1) многообразие художественных стилей", "2) участие в социализации человека", "3) вера в существование сверхъестественных сил", "4) получение объективных знаний об окружающем мире"], correct: 3,
+        ru: { text: "Какой признак отличает науку от других форм (областей) духовной культуры?\n\n1) многообразие художественных стилей\n2) участие в социализации человека\n3) вера в существование сверхъестественных сил\n4) получение объективных знаний об окружающем мире",
+          info: "Задание 2 проверяет знание форм духовной культуры.", explanation: "Наука — получение объективных знаний. Ответ — вариант №4." },
+        en: { text: "What distinguishes science from other forms of spiritual culture?",
+          info: "Task 2 checks forms of spiritual culture.", explanation: "Science — objective knowledge. Answer: option #4." } },
+
+      { id: 3, level: "short", task: 3, type: "single",
+        options: ["1) индивид", "2) личность", "3) спортсмен", "4) работник"], correct: 1,
+        ru: { text: "Родион работает на заводе. Он – хороший отец и друг. Его хобби – футбол: он регулярно посещает футбольные матчи. Обогащая таким образом собственный социальный опыт, Родион развивается как\n\n1) индивид\n2) личность\n3) спортсмен\n4) работник",
+          info: "Задание 3 проверяет знание понятий «индивид» и «личность».", explanation: "Развитие социального опыта — становление личности. Ответ — вариант №2." },
+        en: { text: "Rodion works at a factory. He is a good father and friend. His hobby is football. Enriching his social experience, Rodion develops as...",
+          info: "Task 3 checks concepts of individual and personality.", explanation: "Social experience — personality. Answer: option #2." } },
+
+      { id: 4, level: "short", task: 4, type: "single",
+        options: ["1) авторитарный", "2) демократический", "3) диктаторский", "4) тоталитарный"], correct: 1,
+        ru: { text: "В государстве все государственные органы, должностные лица и граждане в своей деятельности подчиняются требованиям закона; существует несколько партий, каждая из которых активно участвует в политической жизни страны. Какой политический режим установился в этом государстве?\n\n1) авторитарный\n2) демократический\n3) диктаторский\n4) тоталитарный",
+          info: "Задание 4 проверяет знание политических режимов.", explanation: "Верховенство закона и многопартийность — демократия. Ответ — вариант №2." },
+        en: { text: "In the state, all bodies and citizens obey the law; there are several parties actively participating in political life. What political regime?",
+          info: "Task 4 checks political regimes.", explanation: "Rule of law and multi-party system — democracy. Answer: option #2." } },
+
+      { id: 5, level: "short", task: 5, type: "single",
+        options: ["1) производство общественных благ", "2) проведение антиинфляционной политики", "3) перераспределение доходов", "4) регулирование денежного обращения"], correct: 0,
+        ru: { text: "Наше государство обеспечивает поддержание правопорядка, оказание населению медицинских и образовательных услуг. Какая функция государства в экономической жизни проявляется в этой деятельности?\n\n1) производство общественных благ\n2) проведение антиинфляционной политики\n3) перераспределение доходов\n4) регулирование денежного обращения",
+          info: "Задание 5 проверяет экономические функции государства.", explanation: "Медицина и образование — общественные блага. Ответ — вариант №1." },
+        en: { text: "The state maintains order, provides medical and educational services. What economic function of the state is manifested?",
+          info: "Task 5 checks economic functions of the state.", explanation: "Medicine and education — public goods. Answer: option #1." } },
+
+      { id: 6, level: "short", task: 6, type: "single",
+        options: ["1) объявляет амнистию", "2) назначает высшее командование Вооружённых Сил Российской Федерации", "3) обеспечивает проведение единой финансовой, кредитной и денежной политики", "4) разрабатывает и представляет Государственной Думе федеральный бюджет"], correct: 1,
+        ru: { text: "Согласно Конституции Российской Федерации Президент Российской Федерации\n\n1) объявляет амнистию\n2) назначает высшее командование Вооружённых Сил Российской Федерации\n3) обеспечивает проведение единой финансовой, кредитной и денежной политики\n4) разрабатывает и представляет Государственной Думе федеральный бюджет",
+          info: "Задание 6 проверяет полномочия Президента РФ.", explanation: "По Конституции Президент назначает высшее командование ВС РФ. Единую фин. политику обеспечивает Правительство/ЦБ. Бюджет разрабатывает Правительство. Амнистию объявляет Госдума. Ответ — вариант №2." },
+        en: { text: "According to the Constitution of the Russian Federation, the President...",
+          info: "Task 6 checks powers of the President.", explanation: "President appoints high command of Armed Forces. Answer: option #2." } },
+
+      { id: 7, level: "short", task: 7, type: "single",
+        options: ["1) верно только А", "2) верно только Б", "3) верны оба суждения", "4) оба суждения неверны"], correct: 2,
+        ru: { text: "Верны ли следующие суждения о деньгах?\n\nА. Деньги позволяют количественно измерить ценность любого товара, услуги.\nБ. Деньги обладают определённой покупательной способностью.\n\n1) верно только А\n2) верно только Б\n3) верны оба суждения\n4) оба суждения неверны",
+          info: "Задание 7 проверяет знание функций денег.", explanation: "Оба суждения верны. Ответ — вариант №3." },
+        en: { text: "Are the following judgments about money correct?\n\nA. Money allows measuring the value of any good or service.\nB. Money has a certain purchasing power.",
+          info: "Task 7 checks functions of money.", explanation: "Both are correct. Answer: option #3." } },
+
+      { id: 8, level: "short", task: 8, type: "single",
+        options: ["1) административного", "2) уголовного", "3) трудового", "4) гражданского"], correct: 0,
+        ru: { text: "Переход гражданином дороги в неустановленном месте нарушает нормы права\n\n1) административного\n2) уголовного\n3) трудового\n4) гражданского",
+          info: "Задание 8 проверяет виды правонарушений.", explanation: "Переход в неположенном месте — административное правонарушение. Ответ — вариант №1." },
+        en: { text: "Crossing the road in an unspecified place violates the norms of...",
+          info: "Task 8 checks types of offences.", explanation: "Administrative offence. Answer: option #1." } },
+
+      { id: 9, level: "short", task: 9, type: "single",
+        options: ["1) верно только А", "2) верно только Б", "3) верны оба суждения", "4) оба суждения неверны"], correct: 1,
+        ru: { text: "Верны ли следующие суждения об уголовной ответственности несовершеннолетних граждан России?\n\nА. Несовершеннолетний возраст как смягчающее обстоятельство учитывается в совокупности с другими смягчающими и отягчающими обстоятельствами.\nБ. Один из видов наказаний, назначаемых несовершеннолетним, – исправительные работы.\n\n1) верно только А\n2) верно только Б\n3) верны оба суждения\n4) оба суждения неверны",
+          info: "Задание 9 проверяет уголовную ответственность несовершеннолетних.", explanation: "Суждение А некорректно сформулировано (возраст — самостоятельное смягчающее обстоятельство). Суждение Б верно (ст. 88 УК РФ). Ответ — вариант №2." },
+        en: { text: "Are the following judgments about criminal liability of minors correct?\n\nA. Minor age is taken into account as a mitigating circumstance.\nB. One type of punishment for minors is corrective labour.",
+          info: "Task 9 checks criminal liability of minors.", explanation: "Only B is strictly correct in this context. Answer: option #2." } },
+
+      { id: 10, level: "short", task: 10, type: "single",
+        options: ["1) верно только А", "2) верно только Б", "3) верны оба суждения", "4) оба суждения неверны"], correct: 3,
+        ru: { text: "Верны ли следующие суждения о социальной мобильности?\n\nА. Горизонтальная мобильность – это изменение положения, которое приводит к повышению или понижению социального статуса.\nБ. Индивидуальная мобильность всегда связана с вертикальными перемещениями индивида.\n\n1) верно только А\n2) верно только Б\n3) верны оба суждения\n4) оба суждения неверны",
+          info: "Задание 10 проверяет социальную мобильность.", explanation: "А неверно (это вертикальная). Б неверно (бывает горизонтальная). Ответ — вариант №4." },
+        en: { text: "Are the following judgments about social mobility correct?\n\nA. Horizontal mobility leads to a rise or fall in social status.\nB. Individual mobility is always vertical.",
+          info: "Task 10 checks social mobility.", explanation: "Both are wrong. Answer: option #4." } },
+
+      { id: 11, level: "short", task: 11, type: "match",
+        correctMatch: "2211", options: [],
+        ru: { text: "Установите соответствие между действиями и элементами статуса обучающегося российской школы: к каждому элементу первого столбца подберите соответствующий элемент из второго столбца.\n\nДЕЙСТВИЯ\nА) с учётом возрастных и психофизических особенностей участвовать в общественно полезном труде\nБ) учиться добросовестно, систематически выполнять домашние задания\nВ) учиться в безопасных, достойных условиях\nГ) обучаться по индивидуальному учебному плану в пределах осваиваемой образовательной программы\n\nЭЛЕМЕНТЫ СТАТУСА\n1) права\n2) обязанности\n\nЗапишите в таблицу выбранные цифры под соответствующими буквами.",
+          info: "Задание 11 проверяет права и обязанности обучающегося.", explanation: "По ключу ФИПИ правильный ответ — 2211.\nА) обязанность (2). Б) обязанность (2). В) право (1). Г) право (1).\nОтвет: 2211." },
+        en: { text: "Match actions and elements of the student's status.\nA) participate in socially useful work\nB) study conscientiously\nC) study in safe conditions\nD) study according to an individual plan\n1) rights 2) duties",
+          info: "Task 11 checks rights and duties.", explanation: "FIPI key: 2211. A) duty (2), B) duty (2), C) right (1), D) right (1)." } },
+
+      { id: 12, level: "short", task: 12, type: "match",
+        correctMatch: "24", options: [],
+        ru: { text: "Ученица 3 класса Маша готовится к диктанту по русскому языку, а её брат играет в компьютерную игру. Сравните два вида деятельности: учёбу и игру.\n\nВыберите и запишите в первую колонку таблицы порядковые номера черт сходства, а во вторую колонку – порядковые номера черт различия.\n\n1) выполнение домашнего задания\n2) желание получить результат\n3) контроль со стороны учителей и родителей\n4) соблюдение определённых норм и правил",
+          info: "Задание 12 проверяет сравнение деятельности.", explanation: "Сходства: 2, 4 (желание получить результат, соблюдение норм). Различия: 1, 3 (домашнее задание, контроль). По ключу ФИПИ — 24." },
+        en: { text: "Compare study and play. Choose similarities and differences.\n1) doing homework\n2) desire for result\n3) control by teachers and parents\n4) following norms and rules",
+          info: "Task 12 checks comparison.", explanation: "Similarities: 2, 4. Answer: 24." } },
+
+      { id: 13, level: "short", task: 13, type: "match",
+        correctMatch: "гимн", options: [],
+        ru: { text: "Заполните пропуск в таблице.\n\nГосударственный символ | Характеристика\nФлаг | Полотнище правильной геометрической (чаще всего прямоугольной) формы, имеющее какую-либо специальную расцветку\n? | Торжественная песня, принятая как символ государственного или социального единства\n\nОтвет запишите словом.",
+          info: "Задание 13 проверяет знание государственных символов.", explanation: "Торжественная песня — гимн. Ответ: гимн." },
+        en: { text: "Fill in the gap.\nFlag — cloth of regular geometric shape.\n? — solemn song adopted as a symbol of state unity.",
+          info: "Task 13 checks state symbols.", explanation: "Solemn song — anthem (гимн). Answer: гимн." } },
+
+      { id: 14, level: "long", task: 14, type: "long", options: [],
+        ru: { text: "Рассмотрите фотографию (семья на прогулке: мама, папа, двое детей).\n\nКакой тип семьи (в зависимости от её структуры/состава) может быть проиллюстрирован с помощью этой фотографии? Используя обществоведческие знания, факты общественной жизни и личный социальный опыт, сформулируйте суждение о роли (значении) семьи в жизни человека и объясните его.",
+          info: "Задание 14 (развёрнутый ответ). Максимум 2 балла.\n\nКритерии:\n1) ответ на вопрос: нуклеарная / полная семья (1 балл);\n2) суждение с объяснением (1 балл).",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\n1) Ответ на вопрос: нуклеарная семья / полная семья.\n\n2) Суждение с объяснением:\n– семья обеспечивает продолжение человеческого рода (ребёнок рождается в семье);\n– семья содержит нетрудоспособных членов семьи (родители обязаны обеспечивать своих несовершеннолетних детей).\n\nКРИТЕРИИ:\n• 2 балла — правильный ответ + сформулировано и объяснено суждение.\n• 1 балл — правильный ответ + один любой другой элемент.\n• 0 баллов — неправильный ответ." },
+        en: { text: "Look at the photo (family on a walk: mom, dad, two children).\n\nWhat type of family (by structure/composition) is illustrated? Formulate a judgment about the role of family in human life and explain it.",
+          info: "Task 14 (extended). Max 2 pts.", explanation: "MODEL ANSWER:\n\n1) Nuclear / complete family.\n2) Family ensures continuation of the human race; family supports disabled members.\n\nCRITERIA:\n• 2 pts — correct answer + explained judgment.\n• 1 pt — correct answer + one element." } },
+
+      { id: 15, level: "long", task: 15, type: "long", options: [],
+        ru: { text: "В ходе социологического опроса гражданам задавали вопрос: «Что не оправдывает Ваших ожиданий при посещении учреждений культуры?» (можно было выбрать несколько вариантов ответа). Результаты опроса (в % от числа отвечавших) представлены в таблице.\n\nОтветы | 30-летние | 50-летние\nНедостаточное количество мероприятий | 35 | 20\nТематическая направленность мероприятий | 20 | 45\nТехническое оформление (свет, звук) | 55 | 20\nКультура общения работников | 10 | 10\nОтсутствие мероприятий по интересам | 10 | 35\n\nСформулируйте одно существенное различие в позициях групп опрошенных. Выскажите предположение о том, чем объясняется это различие.",
+          info: "Задание 15 (развёрнутый ответ). Максимум 2 балла.\n\nКритерии:\n1) сформулировано существенное различие (1 балл);\n2) высказано предположение (1 балл).",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\n1) Существенное различие: наибольшая доля 30-летних (55%) отметила техническое оформление мероприятий, а наибольшая доля 50-летних (45%) — тематическую направленность.\n\n2) Предположение: возможно, 30-летние более требовательны к современным технологиям, а 50-летние — к содержанию мероприятий.\n\nКРИТЕРИИ:\n• 2 балла — сформулировано различие + высказано предположение.\n• 1 балл — только различие.\n• 0 баллов — иначе." },
+        en: { text: "Survey: «What does not meet your expectations when visiting cultural institutions?» Results in %.\n\nAnswers | 30-year-olds | 50-year-olds\nInsufficient number of events | 35 | 20\nThematic focus | 20 | 45\nTechnical design (light, sound) | 55 | 20\nCulture of communication | 10 | 10\nLack of events of interest | 10 | 35\n\nFormulate one significant difference and a hypothesis explaining it.",
+          info: "Task 15 (extended). Max 2 pts.", explanation: "MODEL ANSWER:\n\n1) Difference: 30-year-olds most often noted technical design (55%), 50-year-olds — thematic focus (45%).\n2) Hypothesis: younger people are more demanding about technology, older — about content.\n\nCRITERIA:\n• 2 pts — difference + hypothesis.\n• 1 pt — only difference." } },
+
+      { id: 16, level: "long", task: 16, type: "long", options: [],
+        ru: { text: "Ивану Сергеевичу срочно понадобились деньги, и он пошёл к банкомату. Ему показалось, что на выбранном им банкомате рядом с отделением для приёма карт установлено какое-то дополнительное устройство. В помещении, где были установлены банкоматы, находились девушка и юноша. Они оказались за спиной Ивана Сергеевича, который набрал пин-код карты, забыв прикрыть рукой клавиатуру, и получил деньги.\n\nКакие небезопасные для своих личных финансов действия совершил Иван Сергеевич? Как ему следовало поступить в описанной ситуации?",
+          info: "Задание 16 (развёрнутый ответ). Максимум 2 балла.\n\nКритерии:\n1) ответ на первый вопрос (1 балл);\n2) ответ на второй вопрос (1 балл).",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\n1) Небезопасные действия: воспользовался банкоматом при подозрении на дополнительное устройство; не прикрыл рукой клавиатуру при наборе пин-кода, когда сзади стояли люди.\n\n2) Как следовало поступить: не пользоваться подозрительным банкоматом; при наборе пин-кода прикрывать клавиатуру; не набирать пин-код, когда за спиной чужие люди.\n\nКРИТЕРИИ:\n• 2 балла — правильные ответы на два вопроса.\n• 1 балл — правильный ответ только на один вопрос.\n• 0 баллов — иначе." },
+        en: { text: "Ivan needed money urgently and went to an ATM. He noticed a suspicious additional device. There were people behind him. He entered his PIN without covering the keyboard.\n\nWhat unsafe actions did Ivan take? How should he have acted?",
+          info: "Task 16 (extended). Max 2 pts.", explanation: "MODEL ANSWER:\n\n1) Unsafe: used a suspicious ATM; did not cover the keyboard.\n2) Should: not use suspicious ATM; cover the keyboard; not enter PIN with strangers behind.\n\nCRITERIA:\n• 2 pts — correct answers to both.\n• 1 pt — only one." } }
+    ];
+
+    /* ORAL — 15 билетов */
+    const oralTasks = [
+      { n: 1,
+        ru: { q1: "Каковы основные признаки и экономические функции домохозяйств? Что включает в себя семейный бюджет? Для чего нужен личный финансовый план?",
+          q2: "Как называется парламент Российской Федерации? Какова его структура? Какие полномочия у каждой палаты?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Домохозяйство — это группа людей, совместно проживающих и ведущих общее хозяйство. Признаки: совместное ведение хозяйства, общий бюджет, родственные связи. Экономические функции: потребление, сбережение, производство (в подсобном хозяйстве). Семейный бюджет включает доходы (зарплата, пенсии, стипендии) и расходы. Личный финансовый план нужен для планирования доходов и расходов, достижения финансовых целей, защиты от мошенничества.\n\nВопрос 2. Парламент РФ — Федеральное Собрание. Состоит из двух палат: Государственная Дума и Совет Федерации. Госдума принимает законы, Совет Федерации одобряет их, утверждает границы, указы Президента." },
+        en: { q1: "What are the main features and economic functions of households? What does the family budget include? Why is a personal financial plan needed?",
+          q2: "What is the parliament of the Russian Federation called? What is its structure? What are the powers of each chamber?",
+          explanation: "MODEL ANSWER:\n\nQ1. A household is a group of people living together and running a common household. Features: common budget, kinship. Functions: consumption, saving, production. The family budget includes income and expenses. A personal financial plan is needed for planning and protection from fraud.\n\nQ2. The parliament is the Federal Assembly. It consists of two chambers: the State Duma and the Federation Council. The Duma passes laws, the Council approves them." } },
+      { n: 2,
+        ru: { q1: "Что такое социальная мобильность? Какие виды социальной мобильности выделяют? Приведите примеры.",
+          q2: "Что такое правонарушение? Какие виды правонарушений выделяют? Что такое юридическая ответственность?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Социальная мобильность — это перемещение человека или группы в социальной структуре. Виды: вертикальная (восходящая и нисходящая) и горизонтальная. Пример вертикальной: повышение в должности. Пример горизонтальной: переезд в другой город без изменения статуса.\n\nВопрос 2. Правонарушение — общественно опасное виновное деяние, противоречащее нормам права. Виды: преступления (уголовные) и проступки (административные, дисциплинарные, гражданско-правовые). Юридическая ответственность — мера государственного принуждения за правонарушение." },
+        en: { q1: "What is social mobility? What types of social mobility are distinguished? Give examples.",
+          q2: "What is an offence? What types of offences are distinguished? What is legal responsibility?",
+          explanation: "MODEL ANSWER:\n\nQ1. Social mobility is the movement of a person or group in the social structure. Types: vertical (upward and downward) and horizontal. Example of vertical: promotion. Example of horizontal: moving to another city without changing status.\n\nQ2. An offence is a socially dangerous guilty act contrary to legal norms. Types: crimes (criminal) and misdemeanours (administrative, disciplinary, civil). Legal responsibility is a measure of state coercion for an offence." } },
+      { n: 3,
+        ru: { q1: "Что такое экономика? Какие функции выполняет экономика в обществе? Что такое факторы производства?",
+          q2: "Что такое Конституция РФ? Каковы её основные принципы? Какие права и свободы человека закреплены в Конституции?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Экономика — это наука о хозяйстве и способах его ведения, а также сама хозяйственная деятельность. Функции: производство, распределение, обмен, потребление. Факторы производства: труд, земля, капитал, предпринимательские способности, информация.\n\nВопрос 2. Конституция РФ — основной закон государства. Принципы: демократия, федерализм, правовое государство, разделение властей, признание прав и свобод человека высшей ценностью. Права: на жизнь, свободу, образование, медицинскую помощь, свободу слова и др." },
+        en: { q1: "What is economics? What functions does it perform? What are factors of production?",
+          q2: "What is the Constitution of the Russian Federation? What are its basic principles? What rights and freedoms are enshrined?",
+          explanation: "MODEL ANSWER:\n\nQ1. Economics is the science of economy and its management, as well as economic activity itself. Functions: production, distribution, exchange, consumption. Factors of production: labour, land, capital, entrepreneurial abilities, information.\n\nQ2. The Constitution is the fundamental law of the state. Principles: democracy, federalism, rule of law, separation of powers, recognition of human rights as the highest value. Rights: life, freedom, education, medical care, freedom of speech, etc." } },
+      { n: 4,
+        ru: { q1: "Что такое культура? Какие виды культуры выделяют? Что такое духовная культура?",
+          q2: "Что такое семья? Какие функции выполняет семья? Какие типы семей выделяют?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Культура — совокупность достижений человечества в материальной и духовной сферах. Виды: материальная и духовная. Духовная культура включает науку, искусство, религию, образование, мораль.\n\nВопрос 2. Семья — малая группа, основанная на браке или родстве, члены которой связаны общностью быта и взаимной ответственностью. Функции: репродуктивная, воспитательная, хозяйственно-экономическая, эмоционально-психологическая, социально-статусная. Типы: нуклеарная, расширенная, полная, неполная." },
+        en: { q1: "What is culture? What types of culture are distinguished? What is spiritual culture?",
+          q2: "What is a family? What functions does it perform? What types of families are distinguished?",
+          explanation: "MODEL ANSWER:\n\nQ1. Culture is the totality of human achievements in material and spiritual spheres. Types: material and spiritual. Spiritual culture includes science, art, religion, education, morality.\n\nQ2. A family is a small group based on marriage or kinship, whose members are connected by common life and mutual responsibility. Functions: reproductive, educational, economic, emotional-psychological, social-status. Types: nuclear, extended, complete, incomplete." } },
+      { n: 5,
+        ru: { q1: "Что такое государство? Какие признаки государства выделяют? Какие функции выполняет государство?",
+          q2: "Что такое финансовая грамотность? Как защитить свои личные финансы от мошенничества?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Государство — политическая организация общества с определённой формой правления. Признаки: территория, суверенитет, публичная власть, аппарат управления, налоги, право. Функции: внутренние (экономическая, социальная, правоохранительная, культурная) и внешние (обороноспособность, международное сотрудничество).\n\nВопрос 2. Финансовая грамотность — это знания и умения в области управления личными финансами. Защита от мошенничества: не сообщать пин-код и CVV-код третьим лицам, не переходить по подозрительным ссылкам, проверять банкоматы на наличие посторонних устройств, использовать официальные приложения банков." },
+        en: { q1: "What is a state? What features of a state are distinguished? What functions does it perform?",
+          q2: "What is financial literacy? How to protect personal finances from fraud?",
+          explanation: "MODEL ANSWER:\n\nQ1. A state is a political organization of society with a certain form of government. Features: territory, sovereignty, public authority, administrative apparatus, taxes, law. Functions: internal (economic, social, law enforcement, cultural) and external (defence, international cooperation).\n\nQ2. Financial literacy is knowledge and skills in managing personal finances. Protection from fraud: do not disclose PIN and CVV codes, do not follow suspicious links, check ATMs for foreign devices, use official bank apps." } },
+      { n: 6,
+        ru: { q1: "Что такое общество? Какие сферы общественной жизни выделяют? Как они взаимосвязаны?",
+          q2: "Что такое Президент РФ? Каковы его полномочия? Как он избирается?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Общество — обособившаяся от природы часть материального мира. Сферы: экономическая, социальная, политическая, духовная. Они взаимосвязаны: изменения в одной сфере влияют на другие.\n\nВопрос 2. Президент РФ — глава государства. Полномочия: подписывает законы, назначает Правительство, является Верховным главнокомандующим, представляет страну на международной арене. Избирается на 6 лет всенародным голосованием." },
+        en: { q1: "What is society? What spheres of public life are distinguished? How are they interconnected?",
+          q2: "What is the President of the Russian Federation? What are his powers? How is he elected?",
+          explanation: "MODEL ANSWER:\n\nQ1. Society is a part of the material world separated from nature. Spheres: economic, social, political, spiritual. They are interconnected: changes in one sphere affect others.\n\nQ2. The President is the head of state. Powers: signs laws, appoints the Government, is the Supreme Commander-in-Chief, represents the country internationally. Elected for 6 years by popular vote." } },
+      { n: 7,
+        ru: { q1: "Что такое наука? Какие функции выполняет наука? Какие виды наук выделяют?",
+          q2: "Что такое право? Какие отрасли права выделяют? Что такое правовая норма?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Наука — форма духовной культуры, направленная на получение объективных знаний. Функции: познавательная, мировоззренческая, производственная, социальная. Виды: естественные, технические, гуманитарные, социальные.\n\nВопрос 2. Право — система общеобязательных норм, установленных государством. Отрасли: конституционное, гражданское, уголовное, административное, трудовое, семейное. Правовая норма — общеобязательное правило поведения, установленное государством." },
+        en: { q1: "What is science? What functions does it perform? What types of sciences are distinguished?",
+          q2: "What is law? What branches of law are distinguished? What is a legal norm?",
+          explanation: "MODEL ANSWER:\n\nQ1. Science is a form of spiritual culture aimed at obtaining objective knowledge. Functions: cognitive, worldview, production, social. Types: natural, technical, humanitarian, social.\n\nQ2. Law is a system of universally binding norms established by the state. Branches: constitutional, civil, criminal, administrative, labour, family. A legal norm is a universally binding rule of conduct established by the state." } },
+      { n: 8,
+        ru: { q1: "Что такое образование? Какие уровни образования выделяют в РФ? Почему важно непрерывное образование?",
+          q2: "Что такое правоотношение? Какие элементы включает правоотношение? Что такое правоспособность и дееспособность?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Образование — целенаправленный процесс обучения и воспитания. Уровни: дошкольное, начальное общее, основное общее, среднее общее, среднее профессиональное, высшее. Непрерывное образование важно для адаптации к изменениям на рынке труда.\n\nВопрос 2. Правоотношение — общественное отношение, урегулированное нормами права. Элементы: субъекты, объект, содержание (права и обязанности). Правоспособность — способность иметь права, дееспособность — способность своими действиями осуществлять права и обязанности." },
+        en: { q1: "What is education? What levels of education are distinguished in Russia? Why is lifelong education important?",
+          q2: "What is a legal relationship? What elements does it include? What is legal capacity and legal capability?",
+          explanation: "MODEL ANSWER:\n\nQ1. Education is a purposeful process of training and upbringing. Levels: preschool, primary general, basic general, secondary general, secondary vocational, higher. Lifelong education is important for adapting to labour market changes.\n\nQ2. A legal relationship is a social relationship regulated by legal norms. Elements: subjects, object, content (rights and duties). Legal capacity is the ability to have rights; legal capability is the ability to exercise rights and duties through one's actions." } },
+      { n: 9,
+        ru: { q1: "Что такое рынок? Какие виды рынков выделяют? Что такое спрос и предложение?",
+          q2: "Что такое Правительство РФ? Каковы его полномочия? Как оно формируется?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Рынок — совокупность экономических отношений, основанных на обмене. Виды: рынок товаров и услуг, рынок труда, рынок капитала, финансовый рынок. Спрос — желание и возможность покупателя приобрести товар. Предложение — желание и возможность продавца предложить товар.\n\nВопрос 2. Правительство РФ — высший исполнительный орган. Полномочия: разрабатывает бюджет, обеспечивает проведение единой финансовой политики, управляет федеральной собственностью. Формируется Президентом с согласия Государственной Думы." },
+        en: { q1: "What is a market? What types of markets are distinguished? What is supply and demand?",
+          q2: "What is the Government of the Russian Federation? What are its powers? How is it formed?",
+          explanation: "MODEL ANSWER:\n\nQ1. A market is a set of economic relations based on exchange. Types: market of goods and services, labour market, capital market, financial market. Demand is the desire and ability of a buyer to purchase a good. Supply is the desire and ability of a seller to offer a good.\n\nQ2. The Government is the highest executive body. Powers: develops the budget, ensures unified financial policy, manages federal property. Formed by the President with the consent of the State Duma." } },
+      { n: 10,
+        ru: { q1: "Что такое деньги? Какие функции выполняют деньги? Что такое инфляция?",
+          q2: "Что такое гражданство РФ? Как приобретается гражданство? Какие права и обязанности у гражданина РФ?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Деньги — особый товар, выполняющий роль всеобщего эквивалента. Функции: мера стоимости, средство обращения, средство платежа, средство накопления, мировые деньги. Инфляция — обесценивание денег, рост цен.\n\nВопрос 2. Гражданство РФ — устойчивая правовая связь человека с государством. Приобретается по рождению, в результате приёма (натурализации), по восстановлению. Права: на жизнь, свободу, образование, медицинскую помощь. Обязанности: платить налоги, защищать Отечество, соблюдать законы." },
+        en: { q1: "What is money? What functions does money perform? What is inflation?",
+          q2: "What is citizenship of the Russian Federation? How is citizenship acquired? What rights and duties does a citizen have?",
+          explanation: "MODEL ANSWER:\n\nQ1. Money is a special commodity that serves as a universal equivalent. Functions: measure of value, medium of exchange, means of payment, means of accumulation, world money. Inflation is the depreciation of money and rising prices.\n\nQ2. Citizenship is a stable legal connection between a person and the state. Acquired by birth, naturalisation, restoration. Rights: life, freedom, education, medical care. Duties: pay taxes, defend the Fatherland, obey laws." } },
+      { n: 11,
+        ru: { q1: "Что такое социальная группа? Какие виды социальных групп выделяют? Что такое социальный конфликт?",
+          q2: "Что такое уголовная ответственность? Какие виды наказаний предусмотрены для несовершеннолетних?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Социальная группа — совокупность людей, объединённых общим признаком. Виды: большие и малые, первичные и вторичные, формальные и неформальные. Социальный конфликт — столкновение интересов групп.\n\nВопрос 2. Уголовная ответственность — меры государственного принуждения за преступления. Для несовершеннолетних: штраф, обязательные работы, исправительные работы, ограничение свободы, лишение свободы на срок не более 10 лет." },
+        en: { q1: "What is a social group? What types of social groups are distinguished? What is social conflict?",
+          q2: "What is criminal liability? What types of punishment are provided for minors?",
+          explanation: "MODEL ANSWER:\n\nQ1. A social group is a collection of people united by a common feature. Types: large and small, primary and secondary, formal and informal. Social conflict is a clash of interests of groups.\n\nQ2. Criminal liability is measures of state coercion for crimes. For minors: fine, compulsory work, corrective labour, restriction of freedom, imprisonment for up to 10 years." } },
+      { n: 12,
+        ru: { q1: "Что такое мораль? Какие функции выполняет мораль? Что такое нравственность?",
+          q2: "Что такое налог? Какие виды налогов выделяют? Какие функции выполняют налоги?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Мораль — форма общественного сознания, совокупность норм и ценностей. Функции: регулятивная, воспитательная, оценочная, интегративная. Нравственность — практическое воплощение моральных норм.\n\nВопрос 2. Налог — обязательный безвозмездный платёж в пользу государства. Виды: прямые и косвенные, федеральные, региональные, местные. Функции: фискальная, распределительная, регулирующая, контрольная." },
+        en: { q1: "What is morality? What functions does it perform? What is ethics?",
+          q2: "What is a tax? What types of taxes are distinguished? What functions do taxes perform?",
+          explanation: "MODEL ANSWER:\n\nQ1. Morality is a form of social consciousness, a set of norms and values. Functions: regulatory, educational, evaluative, integrative. Ethics is the practical implementation of moral norms.\n\nQ2. A tax is a compulsory gratuitous payment to the state. Types: direct and indirect, federal, regional, local. Functions: fiscal, distributive, regulatory, control." } },
+      { n: 13,
+        ru: { q1: "Что такое мировоззрение? Какие виды мировоззрения выделяют? Что такое религия?",
+          q2: "Что такое административная ответственность? Какие виды административных наказаний выделяют?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Мировоззрение — система взглядов человека на мир и своё место в нём. Виды: мифологическое, религиозное, научное, обыденное. Религия — форма мировоззрения, основанная на вере в сверхъестественное.\n\nВопрос 2. Административная ответственность — меры государственного принуждения за административные правонарушения. Наказания: предупреждение, штраф, лишение специального права, административный арест." },
+        en: { q1: "What is a worldview? What types of worldview are distinguished? What is religion?",
+          q2: "What is administrative liability? What types of administrative penalties are distinguished?",
+          explanation: "MODEL ANSWER:\n\nQ1. A worldview is a system of views on the world and one's place in it. Types: mythological, religious, scientific, everyday. Religion is a form of worldview based on belief in the supernatural.\n\nQ2. Administrative liability is measures of state coercion for administrative offences. Penalties: warning, fine, deprivation of special rights, administrative arrest." } },
+      { n: 14,
+        ru: { q1: "Что такое глобализация? Какие проявления глобализации выделяют? Какие глобальные проблемы существуют?",
+          q2: "Что такое трудовое право? Какие права имеет работник? Какие обязанности у работодателя?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Глобализация — процесс всемирной интеграции. Проявления: международная торговля, миграция, культурный обмен. Глобальные проблемы: экологические, демографические, терроризм, бедность.\n\nВопрос 2. Трудовое право — отрасль права, регулирующая трудовые отношения. Права работника: на отдых, оплату труда, безопасные условия. Обязанности работодателя: обеспечивать условия труда, платить зарплату, соблюдать трудовое законодательство." },
+        en: { q1: "What is globalisation? What are the manifestations of globalisation? What global problems exist?",
+          q2: "What is labour law? What rights does an employee have? What duties does an employer have?",
+          explanation: "MODEL ANSWER:\n\nQ1. Globalisation is the process of worldwide integration. Manifestations: international trade, migration, cultural exchange. Global problems: environmental, demographic, terrorism, poverty.\n\nQ2. Labour law is a branch of law regulating labour relations. Employee rights: rest, remuneration, safe conditions. Employer duties: provide working conditions, pay wages, comply with labour legislation." } },
+      { n: 15,
+        ru: { q1: "Что такое Россия на пути в будущее? Какие национальные цели развития России? Что такое технологический суверенитет?",
+          q2: "Что такое семейное право? Какие права и обязанности у супругов? Какие права у ребёнка?",
+          explanation: "ЭТАЛОННЫЙ ОТВЕТ:\n\nВопрос 1. Россия — страна возможностей. Национальные цели: сохранение населения, здоровье, образование, комфортная среда, технологический суверенитет. Технологический суверенитет — независимость в критически важных технологиях.\n\nВопрос 2. Семейное право — отрасль права, регулирующая семейные отношения. Права супругов: равенство, совместное имущество, выбор фамилии. Права ребёнка: на жизнь, имя, образование, защиту, общение с родственниками." },
+        en: { q1: "What is Russia on the path to the future? What are Russia's national development goals? What is technological sovereignty?",
+          q2: "What is family law? What rights and duties do spouses have? What rights does a child have?",
+          explanation: "MODEL ANSWER:\n\nQ1. Russia is a country of opportunities. National goals: population preservation, health, education, comfortable environment, technological sovereignty. Technological sovereignty is independence in critically important technologies.\n\nQ2. Family law is a branch of law regulating family relations. Spouses' rights: equality, joint property, choice of surname. Child's rights: life, name, education, protection, communication with relatives." } }
+    ];
+
+    function renderStructureCards() {
+      document.getElementById("structureGrid").innerHTML = structureCards.map(card => {
+        let body = "";
+        if (card.items) body = `<ul class="mini-list">${card.items.map(it => `<li>${escapeHtml(loc(it))}</li>`).join("")}</ul>`;
+        return `<article class="card ${card.cardClass}">
+          <span class="tag ${card.tagClass}">${escapeHtml(loc(card.tag))}</span>
+          <h3>${escapeHtml(loc(card.title))}</h3>
+          ${body}
+        </article>`;
+      }).join("");
+    }
+
+    function renderTopicsCards() {
+      document.getElementById("topicsGrid").innerHTML = topicsCards.map(t => {
+        const studied = topicsState[t.key] ? "studied" : "";
+        const btnLabel = topicsState[t.key] ? "✓ Изучено" : "Отметить";
+        return `<article class="card topic-card ${studied}">
+          <h3>${escapeHtml(loc(t.title))}</h3>
+          <p>${escapeHtml(loc(t.text))}</p>
+          <button class="btn small" onclick="toggleTopic('${t.key}')">${btnLabel}</button>
+        </article>`;
+      }).join("");
+    }
+
+    function renderChecklist() {
+      document.getElementById("checklistUl").innerHTML = checklistItems.map(item => {
+        const checked = checklistState[item.key] ? "checked" : "";
+        const done = checklistState[item.key] ? "done" : "";
+        return `<li class="check-item ${done}">
+          <input type="checkbox" id="${item.key}" data-key="${item.key}" ${checked} />
+          <label for="${item.key}">${escapeHtml(loc(item.label))}</label>
+        </li>`;
+      }).join("");
+    }
+
+    function renderPlan() {
+      const L = I18N[currentLang];
+      document.getElementById("planGrid").innerHTML = planDays.map(d => `
+        <div class="day ${d.critical ? "critical" : ""}">
+          <b>${escapeHtml(L.dayPrefix)} ${d.day}</b>
+          <p>${escapeHtml(loc(d.text))}</p>
+        </div>
+      `).join("");
+    }
+
+    function renderReferences() {
+      document.getElementById("refsGrid").innerHTML = `
+        <div class="card success-card">
+          <h3>Критерии письменной части (задания 1–13)</h3>
+          <table class="reference-table">
+            <tr><th>Тип</th><th>Балл</th></tr>
+            <tr><td>Задания 1, 13 (слово)</td><td>0–1</td></tr>
+            <tr><td>Задания 2–10 (выбор)</td><td>0–1</td></tr>
+            <tr><td>Задания 11, 12 (последовательность)</td><td>0–1</td></tr>
+            <tr><td><strong>Максимум за 1–13</strong></td><td><strong>13</strong></td></tr>
+          </table>
+        </div>
+        <div class="card warn-card">
+          <h3>Критерии письменной части (задания 14–16)</h3>
+          <table class="reference-table">
+            <tr><th>Задание</th><th>Балл</th></tr>
+            <tr><td>14 (развёрнутый)</td><td>0–2</td></tr>
+            <tr><td>15 (развёрнутый)</td><td>0–2</td></tr>
+            <tr><td>16 (развёрнутый)</td><td>0–2</td></tr>
+            <tr><td><strong>Максимум за 14–16</strong></td><td><strong>6</strong></td></tr>
+          </table>
+        </div>
+        <div class="card danger-card">
+          <h3>Шкала перевода (письменная форма)</h3>
+          <table class="reference-table">
+            <tr><th>Отметка</th><th>Баллы</th></tr>
+            <tr><td>«2»</td><td>0–6</td></tr>
+            <tr><td>«3»</td><td>7–11</td></tr>
+            <tr><td>«4»</td><td>12–15</td></tr>
+            <tr><td>«5»</td><td>16–19</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Шкала перевода (устная форма)</h3>
+          <table class="reference-table">
+            <tr><th>Отметка</th><th>Баллы</th></tr>
+            <tr><td>«2»</td><td>0–1</td></tr>
+            <tr><td>«3»</td><td>2–3</td></tr>
+            <tr><td>«4»</td><td>4–5</td></tr>
+            <tr><td>«5»</td><td>6</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Распределение вопросов билетов по разделам (устная форма)</h3>
+          <table class="reference-table">
+            <tr><th>Раздел курса</th><th>Кол-во вопросов</th></tr>
+            <tr><td>Человек и общество</td><td>5</td></tr>
+            <tr><td>Государство и право</td><td>13</td></tr>
+            <tr><td>Культура</td><td>5</td></tr>
+            <tr><td>Экономика</td><td>5</td></tr>
+            <tr><td>Россия на пути в будущее</td><td>2</td></tr>
+            <tr><td><strong>Итого</strong></td><td><strong>30</strong></td></tr>
+          </table>
+          <p style="color:var(--muted);font-size:13px;margin-top:10px;">Первый вопрос билета — «Человек и общество», «Культура», «Экономика». Второй вопрос — «Государство и право», «Россия на пути в будущее».</p>
+        </div>
+      `;
+    }
+
+    function renderOral() {
+      const container = document.getElementById("oralContainer");
+      const L = I18N[currentLang];
+      container.innerHTML = oralTasks.map(t => {
+        const tr = t[currentLang];
+        return `
+          <article class="manual-card">
+            <span class="tag red">${escapeHtml(L.oralTag)}</span>
+            <h3>${escapeHtml(L.oralTaskPrefix)} №${t.n}</h3>
+            <div class="q-part-label">${escapeHtml(L.oralQ1)}</div>
+            <div class="q-text">${escapeHtml(tr.q1)}</div>
+            <div class="oral-self-check" data-ticket="${t.n}" data-q="1">
+              <span class="oral-score-label">${escapeHtml(L.oralSelfScoreLabel)}</span>
+              ${[3,2,1,0].map(score => `
+                <div class="oral-score-row">
+                  <input type="radio" name="oral-${t.n}-q1" id="oral-${t.n}-q1-${score}" value="${score}" data-ticket="${t.n}" data-q="1" />
+                  <label for="oral-${t.n}-q1-${score}">${escapeHtml(L["oralScore" + score] || score)}</label>
+                </div>
+              `).join("")}
+            </div>
+            <div class="q-part-label" style="margin-top:14px;">${escapeHtml(L.oralQ2)}</div>
+            <div class="q-text">${escapeHtml(tr.q2)}</div>
+            <div class="oral-self-check" data-ticket="${t.n}" data-q="2">
+              <span class="oral-score-label">${escapeHtml(L.oralSelfScoreLabel)}</span>
+              ${[3,2,1,0].map(score => `
+                <div class="oral-score-row">
+                  <input type="radio" name="oral-${t.n}-q2" id="oral-${t.n}-q2-${score}" value="${score}" data-ticket="${t.n}" data-q="2" />
+                  <label for="oral-${t.n}-q2-${score}">${escapeHtml(L["oralScore" + score] || score)}</label>
+                </div>
+              `).join("")}
+            </div>
+            <div class="oral-ticket-total" id="oral-total-${t.n}">${escapeHtml(L.oralTicketTotal)}: 0 / 6</div>
+            <div class="check-input">
+              <label>${escapeHtml(L.oralSelfLabel)}</label>
+              <textarea data-oral="${t.n}" placeholder="${escapeHtml(L.oralPlaceholder)}">${escapeHtml(oralNotes[t.n] || "")}</textarea>
+            </div>
+            <div style="margin-top:10px;">
+              <button class="btn small secondary" onclick="showOralModel(${t.n})">${escapeHtml(L.showSolution)}</button>
+            </div>
+            <div id="oralResult-${t.n}"></div>
+          </article>
+        `;
+      }).join("");
+      updateOralTotals();
+      updateOralSummary();
+    }
+
+    function updateOralTotals() {
+      oralTasks.forEach(t => {
+        let sum = 0;
+        [1, 2].forEach(q => {
+          const checked = document.querySelector(`input[name="oral-${t.n}-q${q}"]:checked`);
+          if (checked) sum += parseInt(checked.value, 10);
+        });
+        const box = document.getElementById("oral-total-" + t.n);
+        if (box) box.textContent = `${I18N[currentLang].oralTicketTotal}: ${sum} / 6`;
+      });
+    }
+
+    function updateOralSummary() {
+      const box = document.getElementById("oralSummaryBox");
+      if (!box) return;
+      const L = I18N[currentLang];
+      let total = 0, answered = 0;
+      oralTasks.forEach(t => {
+        let sum = 0, hasAny = false;
+        [1, 2].forEach(q => {
+          const checked = document.querySelector(`input[name="oral-${t.n}-q${q}"]:checked`);
+          if (checked) { sum += parseInt(checked.value, 10); hasAny = true; }
+        });
+        total += sum;
+        if (hasAny) answered++;
+      });
+      const maxTotal = oralTasks.length * 6;
+      const pct = Math.round((total / maxTotal) * 100);
+      const verdict = pct >= 85 ? L.verdictExcellent : pct >= 60 ? L.verdictGood : L.verdictNeeds;
+      box.innerHTML = `
+        <div class="oral-summary-box">
+          <div class="score">${total} / ${maxTotal}</div>
+          <p style="margin:8px 0;">${escapeHtml(verdict)}</p>
+          <p style="color:var(--muted);margin:0;">${escapeHtml(L.oralSummaryProgress)}: ${answered} / ${oralTasks.length}</p>
+          <p style="color:var(--muted);margin:6px 0 0;font-size:13px;">${escapeHtml(L.oralScaleHint)}</p>
+        </div>`;
+    }
+
+    function showOralModel(n) {
+      const t = oralTasks.find(x => x.n === n);
+      if (!t) return;
+      const box = document.getElementById("oralResult-" + n);
+      const L = I18N[currentLang];
+      box.innerHTML = `
+        <div class="result-block correct">
+          <div class="verdict correct">📖 ${escapeHtml(L.explanation)}</div>
+          <div class="result-row" style="white-space:pre-wrap;">${escapeHtml(t[currentLang].explanation)}</div>
+        </div>`;
+      updateStats();
+      updateSummary();
+    }
+
+    function levelLabel(level) {
+      const L = I18N[currentLang];
+      return L["level" + level.replace("v", "")] || level;
+    }
+    function sourceLabel(q) {
+      const L = I18N[currentLang];
+      const tpl = L["source" + (q.level === "short" ? "Short" : "Long")] || "GVE-9 2027, task {task}";
+      return tpl.replace("{task}", q.task);
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById("quizContainer");
+      const L = I18N[currentLang];
+      container.innerHTML = "";
+      quiz.forEach(q => {
+        const block = document.createElement("div");
+        block.className = "question-block";
+        block.id = "q" + q.id;
+
+        let trainerHtml = "";
+        if (q.type === "single") {
+          let opts = "";
+          q.options.forEach((opt, idx) => {
+            opts += `<button class="option" data-q="${q.id}" data-idx="${idx}" data-value="${escapeHtml(opt)}" onclick="handleAnswer(${q.id}, ${idx})">${escapeHtml(opt)}</button>`;
+          });
+          trainerHtml = `<div class="options" id="options-${q.id}">${opts}</div>`;
+        } else if (q.type === "match") {
+          trainerHtml = `
+            <div class="match-input-row">
+              <input type="text" id="match-${q.id}" maxlength="30" placeholder="${escapeHtml(L.matchPlaceholder)}" value="${escapeHtml(savedAnswers[q.id] || "")}" />
+              <button class="btn small" onclick="handleMatch(${q.id})">${escapeHtml(L.matchCheck)}</button>
+            </div>
+          `;
+        } else if (q.type === "long") {
+          trainerHtml = `
+            <div class="writing-area">
+              <textarea id="solution_${q.id}" data-qid="${q.id}" placeholder="Напиши решение здесь...">${escapeHtml(savedAnswers["solution_" + q.id] || "")}</textarea>
+            </div>
+            <div style="margin-top:10px;">
+              <button class="btn small secondary" onclick="toggleSolution(${q.id})">${escapeHtml(L.showSolution)}</button>
+            </div>
+          `;
+        }
+
+        const tr = q[currentLang];
+
+        block.innerHTML = `
+          <div class="q-number">${escapeHtml(levelLabel(q.level))}, ${currentLang === "ru" ? "задание" : "task"} ${q.task}</div>
+          <div class="q-part">
+            <span class="q-part-label">${escapeHtml(L.questionLabel1)}</span>
+            <div class="q-text">${escapeHtml(tr.text)}</div>
+          </div>
+          <div class="q-info">
+            <span class="q-part-label" style="color:var(--accent);">${escapeHtml(L.questionLabel2)}</span>
+            <p style="margin:0;">${escapeHtml(tr.info)}</p>
+          </div>
+          <div class="q-part">
+            <span class="q-trainer-label">${escapeHtml(L.questionLabel3)}</span>
+            ${trainerHtml}
+          </div>
+          <div id="result-${q.id}"></div>
+        `;
+        container.appendChild(block);
+      });
+
+      container.querySelectorAll("textarea[data-qid]").forEach(ta => {
+        ta.addEventListener("input", e => {
+          const qid = e.target.dataset.qid;
+          savedAnswers["solution_" + qid] = e.target.value;
+          updateStats();
+        });
+      });
+
+      quiz.forEach(q => {
+        if (savedAnswers[q.id] !== undefined && q.type === "single") {
+          applyAnswerVisual(q, savedAnswers[q.id]);
+          showResult(q, savedAnswers[q.id]);
+        }
+        if (savedAnswers[q.id] !== undefined && q.type === "match") {
+          showMatchResult(q, savedAnswers[q.id]);
+        }
+      });
+
+      updateFilterLabels();
+      applyFilter();
+      updateStats();
+      updateSummary();
+    }
+
+    function handleAnswer(qId, selectedIdx) {
+      const q = quiz.find(item => item.id === qId);
+      if (!q || savedAnswers[qId] !== undefined) return;
+      const selectedValue = q.options[selectedIdx];
+      savedAnswers[qId] = selectedValue;
+      applyAnswerVisual(q, selectedValue);
+      showResult(q, selectedValue);
+      updateStats();
+      updateSummary();
+    }
+
+    function normalizeInput(str) {
+      return String(str || "").trim().toLowerCase().replace(/ё/g, "е").replace(/[\s,;.\-–—]/g, "");
+    }
+
+    function handleMatch(qId) {
+      const q = quiz.find(item => item.id === qId);
+      if (!q) return;
+      const input = document.getElementById("match-" + qId);
+      const value = normalizeInput(input.value);
+      savedAnswers[qId] = value;
+      showMatchResult(q, value);
+      updateStats();
+      updateSummary();
+    }
+
+    function showMatchResult(q, value) {
+      const resultBox = document.getElementById("result-" + q.id);
+      if (!resultBox) return;
+      const L = I18N[currentLang];
+      const nv = normalizeInput(value);
+      const nc = normalizeInput(q.correctMatch);
+      const isCorrect = nv === nc;
+      resultBox.innerHTML = `
+        <div class="result-block ${isCorrect ? "correct" : "wrong"}">
+          <div class="verdict ${isCorrect ? "correct" : "wrong"}">${escapeHtml(isCorrect ? L.resultCorrect : L.resultWrong)}</div>
+          <div class="result-row"><strong>${escapeHtml(L.correctAnswer)}</strong> ${escapeHtml(q.correctMatch)}</div>
+          <div class="result-row"><strong>${escapeHtml(L.explanation)}</strong> ${escapeHtml(q[currentLang].explanation).replace(/\n/g, "<br/>")}</div>
+          <div class="source-row"><strong>${escapeHtml(L.source)}</strong> ${escapeHtml(sourceLabel(q))}</div>
+        </div>`;
+    }
+
+    function toggleSolution(qId) {
+      const q = quiz.find(item => item.id === qId);
+      if (!q) return;
+      const resultBox = document.getElementById("result-" + qId);
+      const L = I18N[currentLang];
+      const isHidden = !resultBox.innerHTML || resultBox.innerHTML.trim() === "";
+      if (isHidden) {
+        resultBox.innerHTML = `
+          <div class="result-block correct">
+            <div class="verdict correct">📖 ${escapeHtml(L.explanation)}</div>
+            <div class="result-row" style="white-space:pre-wrap;">${escapeHtml(q[currentLang].explanation)}</div>
+          </div>`;
+      } else {
+        resultBox.innerHTML = "";
+      }
+      updateStats();
+      updateSummary();
+    }
+
+    function applyAnswerVisual(q, selectedValue) {
+      const optionsBox = document.getElementById("options-" + q.id);
+      if (!optionsBox) return;
+      const correctValue = q.options[q.correct];
+      optionsBox.querySelectorAll(".option").forEach(btn => {
+        btn.disabled = true;
+        const value = btn.dataset.value;
+        if (value === correctValue) btn.classList.add("correct");
+        if (value === selectedValue && selectedValue !== correctValue) btn.classList.add("wrong");
+      });
+    }
+
+    function showResult(q, selectedValue) {
+      const resultBox = document.getElementById("result-" + q.id);
+      if (!resultBox) return;
+      const L = I18N[currentLang];
+      const tr = q[currentLang];
+      const correctValue = q.options[q.correct];
+      const isCorrect = selectedValue === correctValue;
+      resultBox.innerHTML = `
+        <div class="result-block ${isCorrect ? "correct" : "wrong"}">
+          <div class="verdict ${isCorrect ? "correct" : "wrong"}">${escapeHtml(isCorrect ? L.resultCorrect : L.resultWrong)}</div>
+          <div class="result-row"><strong>${escapeHtml(L.correctAnswer)}</strong> ${escapeHtml(correctValue)}</div>
+          <div class="result-row"><strong>${escapeHtml(L.explanation)}</strong> ${escapeHtml(tr.explanation)}</div>
+          <div class="source-row"><strong>${escapeHtml(L.source)}</strong> ${escapeHtml(sourceLabel(q))}</div>
+        </div>`;
+    }
+
+    function setFilter(filter, btn) {
+      currentFilter = filter;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+      applyFilter();
+    }
+    function applyFilter() {
+      quiz.forEach(q => {
+        const block = document.getElementById("q" + q.id);
+        if (!block) return;
+        let show = true;
+        if (currentFilter === "short") show = q.level === "short";
+        else if (currentFilter === "long") show = q.level === "long";
+        block.style.display = show ? "" : "none";
+      });
+    }
+    function updateFilterLabels() {
+      const L = I18N[currentLang];
+      const cShort = quiz.filter(q => q.level === "short").length;
+      const cLong = quiz.filter(q => q.level === "long").length;
+      document.getElementById("filterAll").textContent = `${L.filterAll} (${quiz.length})`;
+      document.getElementById("filterShort").textContent = `${L.filterShort} (${cShort})`;
+      document.getElementById("filterLong").textContent = `${L.filterLong} (${cLong})`;
+    }
+
+    function toggleTopic(key) {
+      topicsState[key] = !topicsState[key];
+      saveAll();
+      renderTopicsCards();
+      updateStats();
+    }
+
+    function isQuestionAnswered(q) {
+      if (q.type === "single") {
+        const saved = savedAnswers[q.id];
+        return typeof saved === "string" && q.options.includes(saved);
+      }
+      if (q.type === "match") {
+        return typeof savedAnswers[q.id] === "string" && savedAnswers[q.id].length > 0;
+      }
+      if (q.type === "long") {
+        return !!savedAnswers["solution_" + q.id];
+      }
+      return false;
+    }
+    function isQuestionCorrect(q) {
+      if (q.type === "single") {
+        const saved = savedAnswers[q.id];
+        return typeof saved === "string" && q.options.includes(saved) && saved === q.options[q.correct];
+      }
+      if (q.type === "match") {
+        const saved = savedAnswers[q.id];
+        if (typeof saved !== "string" || !saved) return false;
+        return normalizeInput(saved) === normalizeInput(q.correctMatch);
+      }
+      return false;
+    }
+
+    function updateStats() {
+      const total = quiz.length;
+      let answered = 0, correct = 0;
+      quiz.forEach(q => {
+        if (isQuestionAnswered(q)) answered++;
+        if (isQuestionCorrect(q)) correct++;
+      });
+      document.getElementById("answeredCount").textContent = answered + "/" + total;
+      document.getElementById("correctCount").textContent = correct;
+      const clDone = checklistItems.filter(i => checklistState[i.key]).length;
+      const clPct = Math.round((clDone / checklistItems.length) * 100);
+      document.getElementById("checklistProgress").textContent = clPct + "%";
+      const overall = Math.round((answered / total * 100 + clPct) / 2);
+      document.getElementById("overall").value = overall;
+    }
+
+    function updateSummary() {
+      const box = document.getElementById("summaryBox");
+      const L = I18N[currentLang];
+      const total = quiz.length;
+      let answered = 0, correct = 0, totalGraded = 0;
+      quiz.forEach(q => {
+        if (isQuestionAnswered(q)) {
+          answered++;
+          if (q.type !== "long") {
+            totalGraded++;
+            if (isQuestionCorrect(q)) correct++;
+          }
+        }
+      });
+      if (answered < total) {
+        box.innerHTML = `<div class="summary">
+          <p style="margin:0;color:var(--muted);">${escapeHtml(L.summaryAnswered)} <strong>${answered}</strong> ${escapeHtml(L.summaryOf)} ${total}</p>
+          <p style="margin:8px 0 0;color:var(--muted);">${escapeHtml(L.summaryCorrect)} <strong>${correct}</strong> (из ${totalGraded} автопроверяемых)</p>
+          <p style="margin:8px 0 0;color:var(--muted);font-size:14px;">${escapeHtml(L.summaryFinish)}</p>
+        </div>`;
+        return;
+      }
+      const pct = totalGraded ? Math.round((correct / totalGraded) * 100) : 0;
+      const verdict = pct >= 85 ? L.verdictExcellent : pct >= 60 ? L.verdictGood : L.verdictNeeds;
+      box.innerHTML = `<div class="summary">
+        <div class="score">${correct}/${totalGraded}</div>
+        <p style="margin:8px 0;">${escapeHtml(verdict)}</p>
+        <p style="color:var(--muted);margin:0;">${escapeHtml(L.summaryCorrect)} ${pct}%</p>
+      </div>`;
+    }
+
+    function resetAll() {
+      if (!confirm(I18N[currentLang].resetConfirm)) return;
+      savedAnswers = {};
+      oralNotes = {};
+      checklistState = {};
+      topicsState = {};
+      renderQuestions();
+      renderOral();
+      renderChecklist();
+      renderTopicsCards();
+      document.querySelectorAll(".oral-self-check input[type='radio']").forEach(r => r.checked = false);
+      updateOralTotals();
+      updateOralSummary();
+      resetOralTimer();
+      updateStats();
+      updateSummary();
+    }
+
+    function applyUIText() {
+      const L = I18N[currentLang];
+      document.title = L.docTitle;
+      document.documentElement.lang = currentLang;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.dataset.i18n;
+        if (L[key] != null) el.innerHTML = L[key];
+      });
+    }
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem(STORAGE.lang, lang);
+      document.querySelectorAll(".lang-option").forEach(sp => sp.classList.toggle("active", sp.dataset.lang === lang));
+      savedAnswers = {};
+      oralNotes = {};
+      applyUIText();
+      renderAll();
+      updateOralTotals();
+      updateOralSummary();
+    }
+
+    function renderAll() {
+      renderStructureCards();
+      renderTopicsCards();
+      renderQuestions();
+      renderOral();
+      renderReferences();
+      renderChecklist();
+      renderPlan();
+      updateStats();
+      updateSummary();
+    }
+
+    /* ОСНОВНОЙ ТАЙМЕР */
+    let timerTotal = 180 * 60, timerRemaining = timerTotal, timerInterval = null, timerRunning = false;
+    function formatTime(sec) {
+      const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
+      return [h, m, s].map(v => String(v).padStart(2, "0")).join(":");
+    }
+    function updateTimerDisplay() {
+      const display = document.getElementById("timerDisplay");
+      const widget = document.getElementById("timerWidget");
+      display.textContent = formatTime(timerRemaining);
+      widget.classList.toggle("warning", timerRemaining <= 300 && timerRemaining > 60);
+      widget.classList.toggle("danger", timerRemaining <= 60);
+    }
+    function updateTimerButton() {
+      const L = I18N[currentLang];
+      const btn = document.getElementById("timerToggle");
+      btn.textContent = timerRunning ? "⏸" : "▶";
+      btn.setAttribute("title", timerRunning ? L.timerPause : L.timerStart);
+    }
+    function stopTimer() { timerRunning = false; if (timerInterval) clearInterval(timerInterval); timerInterval = null; updateTimerButton(); }
+    function startTimer() {
+      if (timerRunning || timerRemaining <= 0) return;
+      timerRunning = true;
+      timerInterval = setInterval(() => {
+        if (timerRemaining > 0) { timerRemaining--; updateTimerDisplay(); }
+        if (timerRemaining === 0) { stopTimer(); alert(I18N[currentLang].timerUp); }
+      }, 1000);
+      updateTimerButton();
+    }
+    function toggleTimer() { timerRunning ? stopTimer() : startTimer(); }
+    function resetTimer() { stopTimer(); timerRemaining = timerTotal; updateTimerDisplay(); }
+    function updateTimerLabels() {
+      const L = I18N[currentLang];
+      const preset = document.getElementById("timerPreset");
+      const selected = preset.value;
+      const presets = [
+        { seconds: 180 * 60, key: "timerBasic" },
+        { seconds: 60 * 60, key: "timerPractice" }
+      ];
+      preset.innerHTML = presets.map(p => `<option value="${p.seconds}">${escapeHtml(L[p.key])}</option>`).join("");
+      if (selected && presets.some(p => String(p.seconds) === selected)) preset.value = selected;
+      else preset.value = String(timerTotal);
+    }
+
+    /* УСТНЫЙ ТАЙМЕР */
+    let oralTimerTotal = 40 * 60, oralTimerRemaining = oralTimerTotal, oralTimerInterval = null, oralTimerRunning = false;
+    function updateOralTimerDisplay() {
+      const display = document.getElementById("oralTimerDisplay");
+      const widget = document.getElementById("oralTimerWidget");
+      if (!display) return;
+      const m = Math.floor(oralTimerRemaining / 60), s = oralTimerRemaining % 60;
+      display.textContent = `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+      widget.classList.toggle("warning", oralTimerRemaining <= 300 && oralTimerRemaining > 60);
+      widget.classList.toggle("danger", oralTimerRemaining <= 60);
+    }
+    function updateOralTimerButton() {
+      const btn = document.getElementById("oralTimerToggle");
+      if (btn) btn.textContent = oralTimerRunning ? "⏸" : "▶";
+    }
+    function stopOralTimer() { oralTimerRunning = false; if (oralTimerInterval) clearInterval(oralTimerInterval); oralTimerInterval = null; updateOralTimerButton(); }
+    function startOralTimer() {
+      if (oralTimerRunning || oralTimerRemaining <= 0) return;
+      oralTimerRunning = true;
+      oralTimerInterval = setInterval(() => {
+        if (oralTimerRemaining > 0) { oralTimerRemaining--; updateOralTimerDisplay(); }
+        if (oralTimerRemaining === 0) { stopOralTimer(); alert(I18N[currentLang].oralTimerUp); }
+      }, 1000);
+      updateOralTimerButton();
+    }
+    function toggleOralTimer() { oralTimerRunning ? stopOralTimer() : startOralTimer(); }
+    function resetOralTimer() { stopOralTimer(); oralTimerRemaining = oralTimerTotal; updateOralTimerDisplay(); }
+
+    function copyPhone() {
+      const phone = "89202275676";
+      const status = document.getElementById("copyStatus");
+      const L = I18N[currentLang];
+      const show = () => { status.textContent = L.copied; setTimeout(() => status.textContent = "", 2500); };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(phone).then(show).catch(() => fallbackCopy(phone, show));
+      } else fallbackCopy(phone, show);
+    }
+    function fallbackCopy(text, cb) {
+      const t = document.createElement("textarea");
+      t.value = text; t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.focus(); t.select();
+      try { document.execCommand("copy"); cb(); } catch (e) { alert(I18N[currentLang].copyFail + text); }
+      document.body.removeChild(t);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadAll();
+      applyTheme();
+      applyUIText();
+      renderAll();
+      updateTimerLabels();
+      updateTimerDisplay();
+      updateOralTimerDisplay();
+
+      document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+      document.getElementById("langToggle").addEventListener("click", () => {
+        setLang(currentLang === "ru" ? "en" : "ru");
+      });
+      document.getElementById("timerToggle").addEventListener("click", toggleTimer);
+      document.getElementById("timerReset").addEventListener("click", resetTimer);
+      document.getElementById("timerPreset").addEventListener("change", e => {
+        timerTotal = parseInt(e.target.value, 10);
+        resetTimer();
+      });
+      document.getElementById("oralTimerToggle").addEventListener("click", toggleOralTimer);
+      document.getElementById("oralTimerReset").addEventListener("click", resetOralTimer);
+      document.getElementById("checklistUl").addEventListener("change", e => {
+        if (e.target.matches("input[type='checkbox']")) {
+          const key = e.target.dataset.key;
+          checklistState[key] = e.target.checked;
+          saveAll();
+          const li = e.target.closest(".check-item");
+          if (li) li.classList.toggle("done", e.target.checked);
+          updateStats();
+        }
+      });
+      document.getElementById("oralContainer").addEventListener("input", e => {
+        if (e.target.matches("textarea[data-oral]")) {
+          oralNotes[e.target.dataset.oral] = e.target.value;
+        }
+      });
+      document.getElementById("oralContainer").addEventListener("change", e => {
+        if (e.target.matches("input[type='radio'][data-ticket]")) {
+          updateOralTotals();
+          updateOralSummary();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
