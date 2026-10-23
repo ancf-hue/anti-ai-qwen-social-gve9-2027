@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ancf-hue.github.io/anti-ai-qwen-social-gve9-2027/sitemap.xml
